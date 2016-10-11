@@ -19,10 +19,15 @@ package org.physical_web.collection;
 import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.UUID;
 
+/**
+ * Eddystone beacon class.
+ * This class represents the Eddystone broadcasting format.
+ */
 public class EddystoneBeacon {
   private static final byte URL_FRAME_TYPE = 0x10;
   private static final byte TITLE_TYPE = 0x0e;
@@ -65,20 +70,21 @@ public class EddystoneBeacon {
   }
 
   /**
-   * Reads the title of a fat beacon broadcast
+   * Reads the title of a fat beacon broadcast.
    * @param serviceData The ble advertised Eddystone URL Service UUID service data
    * @return Title encoded in the broadcast
    */
   public static String getFatBeaconTitle(byte[] serviceData) {
     if (serviceData.length > 2) {
-      String title = new String(Arrays.copyOfRange(serviceData, 3, serviceData.length)).trim();
+      byte[] bytes = Arrays.copyOfRange(serviceData, 3, serviceData.length);
+      String title = new String(bytes, Charset.forName("UTF-8")).trim();
       return  title.indexOf('\uFFFD') == -1 ? title : "";
     }
     return "";
   }
 
   /**
-   * Checks if the broadcast is a fat beacon
+   * Checks if the broadcast is a fat beacon.
    * @param serviceData The ble advertised Eddystone URL Service UUID service data
    * @return true if it is a fat beacon, false otherwise
    */
@@ -88,7 +94,7 @@ public class EddystoneBeacon {
   }
 
   /**
-   * Checks if the broadcast is a Eddystone URL
+   * Checks if the broadcast is a Eddystone URL.
    * @param serviceData The ble advertised Eddystone URL Service UUID service data
    * @return true if it is a URL, false otherwise
    */
@@ -169,7 +175,7 @@ public class EddystoneBeacon {
 
 
   /**
-   * Getter for the Eddystone URL
+   * Getter for the Eddystone URL.
    * @return Eddystone URL
    */
   public String getUrl() {
@@ -177,7 +183,7 @@ public class EddystoneBeacon {
   }
 
   /**
-   * Getter for the Tx Power Level
+   * Getter for the Tx Power Level.
    * @return Tx Power Level
    */
   public byte getTxPowerLevel() {
@@ -185,7 +191,7 @@ public class EddystoneBeacon {
   }
 
   /**
-   * Getter for the flags
+   * Getter for the flags.
    * @return flags
    */
   public byte getFlags() {

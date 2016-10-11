@@ -161,7 +161,6 @@ public class PhysicalWebBroadcastService extends Service {
           Toast.makeText(getApplicationContext(), getString(R.string.shorten_error),
               Toast.LENGTH_LONG).show();
           stopSelf();
-          return;
         }
 
         @Override
@@ -169,7 +168,6 @@ public class PhysicalWebBroadcastService extends Service {
           Toast.makeText(getApplicationContext(), getString(R.string.shorten_error),
               Toast.LENGTH_LONG).show();
           stopSelf();
-          return;
         }
 
         @Override
@@ -252,7 +250,6 @@ public class PhysicalWebBroadcastService extends Service {
 
     // Broadcast via bluetooth the stored URL
     private void broadcastUrl() {
-        Log.d(TAG, "broadcastUrl: " + mShareUrl);
         final AdvertiseData advertisementData = AdvertiseDataUtils.getAdvertisementData(mShareUrl);
         final AdvertiseSettings advertiseSettings = AdvertiseDataUtils.getAdvertiseSettings(false);
         mBluetoothLeAdvertiser.stopAdvertising(mAdvertiseCallback);
