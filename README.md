@@ -50,7 +50,7 @@ Finally, detected beacons and related rank are displayed in an ordered list. Eac
 * Physical Semantic Web - Developed tools
 	* [Physical Semantic Web Collection library](java/libs) - A Java SE library containing basic data structures and convenience utilities for storing metadata related to BLE devices;
     * [PSW Android client](android/PhysicalWeb) - A mobile client for Android devices    
-    * [OWLEditor](android/OWLEditor) - An Android libray for for showing, composing and manipulating OWL annotations
+    * [OWLEditor](android/OwlEditor) - An Android libray for for showing, composing and manipulating OWL annotations
     * [psw-node-eddystone-beacon](https://github.com/sisinflab-swot/psw-node-eddystone-beacon) - A simple library to advertise PSW Eddystone Beacons using Node.js
     * [psw-node-eddystone-beacon-scanner](https://github.com/sisinflab-swot/psw-node-eddystone-beacon-scanner) - A scan module for Node.js to discover PSW Eddystone beacons
 

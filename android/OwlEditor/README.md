@@ -22,7 +22,7 @@ The *OWLEditor* library was developed as an Android module in order to be easily
 ```
 include ':owleditor'
 
-project(':owleditor').projectDir = new File('<path>/OWLEditor')
+project(':owleditor').projectDir = new File('<path>/OwlEditor')
 ```
 
 - Edit the *build.gradle* file to set the library as project *dependency*
