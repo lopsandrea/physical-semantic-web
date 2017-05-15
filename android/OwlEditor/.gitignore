@@ -1,1 +1,11 @@
-/build
+# Keystore files for signing
+*.jks
+*.keystore
+
+*.iml
+.gradle
+.idea
+.DS_Store
+build
+local.properties
+signing.properties
