@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="primary">#2196F3</color>
+    <color name="primaryDark">#1976D2</color>
+    <color name="primaryLight">#64B5F6</color>
+
+    <color name="owl_class_primary">#FFC107</color>
+    <color name="owl_class_primaryDark">#FFB300</color>
+
+    <color name="owl_obj_prop_primary">#3F51B5</color>
+    <color name="owl_obj_prop_primaryDark">#3949AB</color>
+
+    <color name="owl_ind_primary">#7E57C2</color>
+    <color name="owl_ind_primaryDark">#5E35B1</color>
+    <color name="owl_ind_primaryLight">#9575CD</color>
+
+    <color name="text_color">#545454</color>
+
+</resources>

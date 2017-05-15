@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- inherit from the material theme -->
+    <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
+        <!-- Main theme colors -->
+        <!--   your app branding color for the app bar -->
+        <item name="android:colorPrimary">@color/primary</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="android:colorPrimaryDark">@color/primaryDark</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="android:colorAccent">@color/primary</item>
+        <!-- <item name="android:navigationBarColor">@color/primaryDark</item> -->
+    </style>
+
+    <style name="OwlClassTheme" parent="android:Theme.Material.Light.DarkActionBar">
+        <item name="android:colorPrimary">@color/owl_class_primary</item>
+        <item name="android:colorPrimaryDark">@color/owl_class_primaryDark</item>
+        <item name="android:colorAccent">@color/owl_class_primary</item>
+    </style>
+
+    <style name="OwlObjPropTheme" parent="android:Theme.Material.Light.DarkActionBar">
+        <item name="android:colorPrimary">@color/owl_obj_prop_primary</item>
+        <item name="android:colorPrimaryDark">@color/owl_obj_prop_primaryDark</item>
+        <item name="android:colorAccent">@color/owl_obj_prop_primary</item>
+    </style>
+
+    <style name="OwlIndividualTheme" parent="android:Theme.Material.Light.DarkActionBar">
+        <item name="android:colorPrimary">@color/owl_ind_primary</item>
+        <item name="android:colorPrimaryDark">@color/owl_ind_primaryDark</item>
+        <item name="android:colorAccent">@color/owl_ind_primary</item>
+    </style>
+
+    <style name="FloatingActionButton" parent="android:Widget.Material.Button">
+        <item name="android:background">@drawable/fab_background</item>
+        <item name="android:stateListAnimator">@animator/fab_state_list_animator</item>
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
+    </style>
+
+</resources>
