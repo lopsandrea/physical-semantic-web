@@ -17,55 +17,49 @@ package it.poliba.sisinflab.psw;
 
 import org.physical_web.collection.EddystoneBeacon;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 /**
- * Physical Semantic Web - Eddystone beacon class.
- * This class represents the Eddystone broadcasting format enhanced for the Physical Semantic Web.
+ * Physical Semantic Web - Eddystone beacon class. This class represents the
+ * Eddystone broadcasting format enhanced for the Physical Semantic Web.
  */
 public class PswEddystoneBeacon extends EddystoneBeacon {
 
-    public static final byte PSW_UID_FRAME_TYPE = 0x01;
-    public static final byte PSW_URL_FRAME_TYPE = 0x11;
+	public static final byte PSW_UID_FRAME_TYPE = 0x01;
+	public static final byte PSW_URL_FRAME_TYPE = 0x11;
 
-    private PswEddystoneBeacon(byte flags, byte txPower, String url) {
-        super(flags, txPower, url);
-    }
+	private PswEddystoneBeacon(byte flags, byte txPower, String url) {
+		super(flags, txPower, url);
+	}
 
-    public static boolean isPswUrlFrame(byte[] serviceData) {
-        return serviceData != null && serviceData.length > 0 &&
-            serviceData[0] == PSW_URL_FRAME_TYPE;
-    }
+	public static boolean isPswUrlFrame(byte[] serviceData) {
+		return serviceData != null && serviceData.length > 0 && serviceData[0] == PSW_URL_FRAME_TYPE;
+	}
 
-    public static boolean isPswUidFrame(byte[] serviceData) {
-        return serviceData != null && serviceData.length > 0 &&
-            serviceData[0] == PSW_UID_FRAME_TYPE;
-    }
+	public static boolean isPswUidFrame(byte[] serviceData) {
+		return serviceData != null && serviceData.length > 0 && serviceData[0] == PSW_UID_FRAME_TYPE;
+	}
 
-    public static UidEddystoneBeacon parseUidFromServiceData(byte[] serviceData) {
-        if (serviceData != null && serviceData.length > 2) {
-            byte flags = (byte) (serviceData[0] & 0x0f);
-            byte txPower = serviceData[1];
+	public static UidEddystoneBeacon parseUidFromServiceData(byte[] serviceData) {
+		if (serviceData != null && serviceData.length > 2) {
+			byte flags = (byte) (serviceData[0] & 0x0f);
+			byte txPower = serviceData[1];
 
-            byte[] bOnto = Arrays.copyOfRange(serviceData, 2, 6);
-            byte[] bIns = Arrays.copyOfRange(serviceData, 6, 12);
-            byte[] bMac = Arrays.copyOfRange(serviceData, 12, 18);
+			byte[] bOnto = Arrays.copyOfRange(serviceData, 2, 6);
+			byte[] bIns = Arrays.copyOfRange(serviceData, 6, 12);
+			byte[] bMac = Arrays.copyOfRange(serviceData, 12, 18);
 
-            if (bOnto == null || bIns == null || bMac == null) {
-                return null;
-            }
+			return new UidEddystoneBeacon(flags, txPower, bytesToHex(bMac), new String(bOnto, StandardCharsets.UTF_8), new String(bIns, StandardCharsets.UTF_8));
+		}
+		return null;
+	}
 
-
-
-            return new UidEddystoneBeacon(flags, txPower, bytesToHex(bMac), new String(bOnto), new String(bIns));
-        }
-        return null;
-    }
-
-    private static String bytesToHex(byte[] bytes) {
-        StringBuilder sb = new StringBuilder(bytes.length * 2);
-        for(byte b: bytes)
-            sb.append(String.format("%02x", b));
-        return sb.toString();
-    }
+	private static String bytesToHex(byte[] bytes) {
+		StringBuilder sb = new StringBuilder(bytes.length * 2);
+		for (byte b : bytes) {
+			sb.append(String.format("%02x", b));
+		}
+		return sb.toString();
+	}
 }

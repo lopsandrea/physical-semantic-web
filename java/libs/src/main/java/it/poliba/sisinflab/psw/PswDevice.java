@@ -1,5 +1,8 @@
 package it.poliba.sisinflab.psw;
 
+/**
+ * The class defining useful attributes to build Physical Semantic Web URL and UID devices.
+ */
 public class PswDevice {
 
     public static final String PSW_UID_ONTO_KEY = "onto";

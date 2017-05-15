@@ -53,6 +53,7 @@ Finally, detected beacons and related rank are displayed in an ordered list. Eac
     * [OWLEditor](android/OwlEditor) - An Android libray for for showing, composing and manipulating OWL annotations
     * [psw-node-eddystone-beacon](https://github.com/sisinflab-swot/psw-node-eddystone-beacon) - A simple library to advertise PSW Eddystone Beacons using Node.js
     * [psw-node-eddystone-beacon-scanner](https://github.com/sisinflab-swot/psw-node-eddystone-beacon-scanner) - A scan module for Node.js to discover PSW Eddystone beacons
+    * [psw-robotics](https://github.com/sisinflab-swot/psw-robotics) - A ROS-based project showing the feasibility of the PSW framework for machine-to-machine robot interaction
 
 
 ## Awards
@@ -71,7 +72,7 @@ If you want to refer to the Physical Semantic Web vision in a publication, pleas
   pages        = {492-498},
   month        = {apr},
   year         = {2017},
-  organization = {Association for Computing Macinery, Inc. (ACM)}
+  organization = {Association for Computing Machinery, Inc. (ACM)}
 }
 ```
 
