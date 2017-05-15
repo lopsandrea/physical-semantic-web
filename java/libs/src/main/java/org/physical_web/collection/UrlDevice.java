@@ -28,7 +28,7 @@ public class UrlDevice {
   private static final String EXTRA_KEY = "extra";
   private final String mId;
   private final String mUrl;
-  private final JSONObject mExtraData;
+  protected final JSONObject mExtraData;
 
   /**
    * Construct a UrlDevice.

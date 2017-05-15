@@ -63,7 +63,7 @@ public class EddystoneBeacon {
   private final String mUrl;
 
 
-  private EddystoneBeacon(byte flags, byte txPower, String url) {
+  protected EddystoneBeacon(byte flags, byte txPower, String url) {
     mFlags = flags;
     mTxPower = txPower;
     mUrl = url;
@@ -125,9 +125,9 @@ public class EddystoneBeacon {
 
   private static EddystoneBeacon eddystoneBeaconBuilder(byte flags, byte txPower, String url) {
     if (url == null || url.isEmpty()) {
-      return null;
-    }
-    return new EddystoneBeacon(flags, txPower, url);
+          return null;
+      }
+      return new EddystoneBeacon(flags, txPower, url);
   }
 
   private static String decode(byte[] serviceData) {
