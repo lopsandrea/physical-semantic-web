@@ -44,6 +44,9 @@ import android.widget.RemoteViews;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import it.poliba.sisinflab.psw.PswBleDeviceDiscoverer;
+import it.poliba.sisinflab.psw.PswUtils;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -90,9 +93,9 @@ public class UrlDeviceDiscoveryService extends Service
   private long mScanStartTime;
   private Handler mHandler;
   private NotificationManagerCompat mNotificationManager;
-  private List<UrlDeviceDiscoverer> mUrlDeviceDiscoverers;
+  protected List<UrlDeviceDiscoverer> mUrlDeviceDiscoverers;
   private List<UrlDeviceDiscoveryListener> mUrlDeviceDiscoveryListeners;
-  private PhysicalWebCollection mPwCollection;
+  protected PhysicalWebCollection mPwCollection;
 
   // Notification of urls happens as follows:
   // 0. Begin scan
@@ -126,7 +129,7 @@ public class UrlDeviceDiscoveryService extends Service
       return UrlDeviceDiscoveryService.this;
     }
   }
-  private IBinder mBinder = new LocalBinder();
+  protected IBinder mBinder = new LocalBinder();
 
   /**
    * Callback for subscribers to this service.
@@ -138,7 +141,7 @@ public class UrlDeviceDiscoveryService extends Service
   public UrlDeviceDiscoveryService() {
   }
 
-  private void initialize() {
+  protected void initialize() {
     mNotificationManager = NotificationManagerCompat.from(this);
     mUrlDeviceDiscoverers = new ArrayList<>();
 
@@ -152,6 +155,7 @@ public class UrlDeviceDiscoveryService extends Service
     }
     mUrlDeviceDiscoverers.add(new SsdpUrlDeviceDiscoverer(this));
     mUrlDeviceDiscoverers.add(new BleUrlDeviceDiscoverer(this));
+
     for (UrlDeviceDiscoverer urlDeviceDiscoverer : mUrlDeviceDiscoverers) {
       urlDeviceDiscoverer.setCallback(this);
     }
@@ -329,29 +333,33 @@ public class UrlDeviceDiscoveryService extends Service
     triggerCallback();
   }
 
-  private void triggerCallback() {
+  protected void triggerCallback() {
     for (UrlDeviceDiscoveryListener urlDeviceDiscoveryListener : mUrlDeviceDiscoveryListeners) {
       urlDeviceDiscoveryListener.onUrlDeviceDiscoveryUpdate();
     }
   }
 
+  protected List<PwPair> getNotBlockedPwPairs() {
+      List<PwPair> pwPairs = mPwCollection.getGroupedPwPairsSortedByRank(
+          new Utils.PwPairRelevanceComparator());
+      List<PwPair> notBlockedPwPairs = new ArrayList<>();
+      for (PwPair i : pwPairs) {
+          if (!Utils.isBlocked(i)) {
+              notBlockedPwPairs.add(i);
+          }
+      }
+      return notBlockedPwPairs;
+  }
+
   /**
    * Create a new set of notifications or update those existing.
    */
-  private void updateNotifications() {
+  protected void updateNotifications() {
     if (!mCanUpdateNotifications) {
       return;
     }
 
-    List<PwPair> pwPairs = mPwCollection.getGroupedPwPairsSortedByRank(
-        new Utils.PwPairRelevanceComparator());
-    List<PwPair> notBlockedPwPairs = new ArrayList<>();
-    for (PwPair i : pwPairs) {
-      if (!Utils.isBlocked(i)) {
-        notBlockedPwPairs.add(i);
-      }
-    }
-
+    List<PwPair> notBlockedPwPairs = getNotBlockedPwPairs();
 
     // If no beacons have been found
     if (notBlockedPwPairs.size() == 0) {

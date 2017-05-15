@@ -22,11 +22,14 @@ import org.physical_web.collection.PwsResult;
 import org.physical_web.collection.UrlDevice;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.ListFragment;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.wifi.WifiInfo;
@@ -40,11 +43,14 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.URLUtil;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -52,6 +58,12 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import it.poliba.sisinflab.owleditor.OWLEditorActivity;
+import it.poliba.sisinflab.owleditor.OWLIndividualFragment;
+import it.poliba.sisinflab.psw.PswDeviceDiscoveryService;
+import it.poliba.sisinflab.psw.PswUtils;
+import it.poliba.sisinflab.psw.owl.KBManager;
 
 /**
  * This class shows the ui list for all
@@ -84,6 +96,11 @@ public class NearbyBeaconsFragment extends ListFragment
   private SwipeDismissListViewTouchListener mTouchListener;
   private WifiDirectConnect mWifiDirectConnect;
   private BluetoothSite mBluetoothSite;
+  static private KBManager mKBManager = null;
+
+  public static KBManager getKBManager() {
+      return mKBManager;
+  }
 
   // The display of gathered urls happens as follows
   // 0. Begin scan
@@ -133,14 +150,14 @@ public class NearbyBeaconsFragment extends ListFragment
    * The connection to the service that discovers urls.
    */
   private class DiscoveryServiceConnection implements ServiceConnection {
-    private UrlDeviceDiscoveryService mDiscoveryService;
+    private PswDeviceDiscoveryService mDiscoveryService;
     private boolean mRequestCachedUrlDevices;
 
     @Override
     public synchronized void onServiceConnected(ComponentName className, IBinder service) {
       // Get the service
-      UrlDeviceDiscoveryService.LocalBinder localBinder =
-          (UrlDeviceDiscoveryService.LocalBinder) service;
+      PswDeviceDiscoveryService.PswLocalBinder localBinder =
+          (PswDeviceDiscoveryService.PswLocalBinder) service;
       mDiscoveryService = localBinder.getServiceInstance();
 
       // Start the scanning display
@@ -167,7 +184,7 @@ public class NearbyBeaconsFragment extends ListFragment
       }
 
       mRequestCachedUrlDevices = requestCachedUrlDevices;
-      Intent intent = new Intent(getActivity(), UrlDeviceDiscoveryService.class);
+      Intent intent = new Intent(getActivity(), PswDeviceDiscoveryService.class);
       getActivity().startService(intent);
       getActivity().bindService(intent, this, Context.BIND_AUTO_CREATE);
     }
@@ -231,6 +248,8 @@ public class NearbyBeaconsFragment extends ListFragment
     listView.setOnScrollListener(mTouchListener.makeScrollListener());
     Utils.restoreFavorites(getActivity());
     Utils.restoreBlocked(getActivity());
+
+    mKBManager = new KBManager(getActivity());
   }
 
   @Override
@@ -288,16 +307,56 @@ public class NearbyBeaconsFragment extends ListFragment
       if (!mBluetoothSite.isRunning()) {
         mBluetoothSite.connect(pwsResult.getSiteUrl(), pwsResult.getTitle());
       }
+    } else if (PswUtils.isPswDevice(item.getUrlDevice())) {
+        createPswListDialog(item);
     } else {
       Intent intent = Utils.createNavigateToUrlIntent(pwsResult);
       startActivity(intent);
     }
   }
 
-  @Override
+  private void createPswListDialog(PwPair item) {
+      AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+      builder.setTitle(R.string.psw_dialog_title)
+          .setItems(R.array.psw_action_array, new DialogInterface.OnClickListener() {
+              public void onClick(DialogInterface dialog, int which) {
+                  switch (which) {
+                      case 0:
+                          //open url
+                          if (URLUtil.isNetworkUrl(PswUtils.getBeaconUrl(item.getPwsResult()))) {
+                              Intent intent = PswUtils.createNavigateToUrlIntent(item.getPwsResult());
+                              startActivity(intent);
+                          } else if (URLUtil.isNetworkUrl(item.getUrlDevice().getUrl())) {
+                              Intent intent = Utils.createNavigateToUrlIntent(item.getPwsResult());
+                              startActivity(intent);
+                          } else {
+                              Toast.makeText(getActivity(), getString(R.string.psw_no_network), Toast.LENGTH_SHORT).show();
+                          }
+                          break;
+
+                      case 1:
+                          //show OWL fragment
+                          if (PswUtils.getResourceIRI(item.getPwsResult()) != null) {
+                              String owl = PswUtils.getOWL(item.getUrlDevice());
+                              if (owl != null) {
+                                  Intent intent = new Intent(getActivity(), OWLEditorActivity.class);
+                                  intent.putExtra(getString(R.string.owl_string_key), owl);
+                                  intent.putExtra(getString(R.string.owl_fragment_key), OWLIndividualFragment.class.getSimpleName());
+                                  startActivity(intent);
+                              } else
+                                  Toast.makeText(getActivity(), getString(R.string.psw_no_owl), Toast.LENGTH_SHORT).show();
+                          }
+                          break;
+                  }
+              }
+          });
+      builder.create().show();
+  }
+
+    @Override
   public void onUrlDeviceDiscoveryUpdate() {
     for (PwPair pwPair : mPwCollection.getGroupedPwPairsSortedByRank(
-        new Utils.PwPairRelevanceComparator())) {
+        new PswUtils.PwPairSemanticBasedComparator(this.getActivity()))) {
       String groupId = Utils.getGroupId(pwPair.getPwsResult());
       Log.d(TAG, "groupid to add " + groupId);
       if (mNearbyDeviceAdapter.containsGroupId(groupId)) {
@@ -379,9 +438,11 @@ public class NearbyBeaconsFragment extends ListFragment
 
     for (String groupId : mGroupIdQueue) {
       Log.d(TAG, "groupid " + groupId);
-      pwPairs.add(Utils.getTopRankedPwPairByGroupId(mPwCollection, groupId));
+      //pwPairs.add(Utils.getTopRankedPwPairByGroupId(mPwCollection, groupId));
+      pwPairs.add(PswUtils.getTopRankedPwPairByGroupId(mPwCollection, groupId));
     }
-    Collections.sort(pwPairs, new Utils.PwPairRelevanceComparator());
+    //Collections.sort(pwPairs, new Utils.PwPairRelevanceComparator());
+    Collections.sort(pwPairs, new PswUtils.PwPairSemanticBasedComparator(getActivity()));
     for (PwPair pwPair : pwPairs) {
       mNearbyDeviceAdapter.addItem(pwPair);
     }
@@ -413,7 +474,7 @@ public class NearbyBeaconsFragment extends ListFragment
       // If isResolvableDevice place in the folder at the bottom
       // of the list (making the folder if it didn't already exist)
       // Otherwise place in the bottom of the non-folder list
-      if (Utils.isResolvableDevice(pwPair.getUrlDevice())) {
+      if (PswUtils.isResolvableDevice(pwPair.getUrlDevice())) {
         mPwPairs.add(mPwPairs.size() - mNumberOfHideableResults, pwPair);
         return;
       }
@@ -467,7 +528,22 @@ public class NearbyBeaconsFragment extends ListFragment
     }
 
     private void setText(View view, int textViewId, String text) {
-      ((TextView) view.findViewById(textViewId)).setText(text);
+        ((TextView) view.findViewById(textViewId)).setText(text);
+    }
+
+    private void setProgressBar(View view, int id, int progress) {
+        ProgressBar pb = ((ProgressBar) view.findViewById(id));
+        pb.setProgress(progress);
+        if (progress > 90)
+            pb.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.rank_very_high)));
+        else if (progress > 75)
+            pb.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.rank_high)));
+        else if (progress > 50)
+            pb.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.rank_medium)));
+        else if (progress > 25)
+            pb.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.rank_low)));
+        else
+            pb.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.rank_very_low)));
     }
 
     @SuppressLint("InflateParams")
@@ -479,8 +555,7 @@ public class NearbyBeaconsFragment extends ListFragment
       if (isFolderItem(pwPair)) {
         view = getActivity().getLayoutInflater().inflate(R.layout.folder_item_nearby_beacon,
             viewGroup, false);
-        WifiManager wifiManager = (WifiManager) getActivity().
-            getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifiManager = (WifiManager) getActivity().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
         String ssid = wifiInfo.getSSID().trim();
         if (ssid.charAt(0) == '"' && ssid.charAt(ssid.length() - 1) == '"') {
@@ -495,12 +570,17 @@ public class NearbyBeaconsFragment extends ListFragment
       setText(view, R.id.title, pwsResult.getTitle());
       if (Utils.isFatBeaconDevice(pwPair.getUrlDevice())) {
         setText(view, R.id.url, getString(R.string.FatBeacon_URL) + pwsResult.getSiteUrl());
+      } else if (PswUtils.isPswUidDevice(pwPair.getUrlDevice())) {
+          setText(view, R.id.url, getString(R.string.psw_uid_label) + pwsResult.getSiteUrl());
       } else {
         setText(view, R.id.url, pwsResult.getSiteUrl());
       }
       if (Utils.isResolvableDevice(pwPair.getUrlDevice())) {
         ((ImageView) view.findViewById(R.id.icon)).setImageBitmap(
             Utils.getBitmapIcon(mPwCollection, pwsResult));
+      } else if (PswUtils.isPswDevice(pwPair.getUrlDevice())) {
+          ((ImageView) view.findViewById(R.id.icon))
+              .setImageResource(R.drawable.ic_beacon);
       } else {
         ((ImageView) view.findViewById(R.id.icon))
             .setImageResource(R.drawable.unresolved_result_icon);
@@ -534,9 +614,12 @@ public class NearbyBeaconsFragment extends ListFragment
         });
       }
 
+      double rank = PswUtils.getRank(pwsResult, pwPair.getUrlDevice(), getActivity());
+      setProgressBar(view, R.id.rateBar, (int)((1-rank)*100));
+
       if (Utils.isDebugViewEnabled(getActivity())) {
         // If we should show the ranging data
-        updateDebugView(pwPair, view);
+        updateDebugView(pwPair, view, rank);
         view.findViewById(R.id.ranging_debug_container).setVisibility(View.VISIBLE);
         view.findViewById(R.id.metadata_debug_container).setVisibility(View.VISIBLE);
       } else {
@@ -546,10 +629,10 @@ public class NearbyBeaconsFragment extends ListFragment
       return view;
     }
 
-    private void updateDebugView(PwPair pwPair, View view) {
+    private void updateDebugView(PwPair pwPair, View view, double rank) {
       // Ranging debug line
       UrlDevice urlDevice = pwPair.getUrlDevice();
-      if (Utils.isBleUrlDevice(urlDevice)) {
+      if (Utils.isBleUrlDevice(urlDevice) || PswUtils.isPswDevice(urlDevice)) {
         setText(view, R.id.ranging_debug_tx_power,
             getString(R.string.ranging_debug_tx_power_prefix) + Utils.getTxPower(urlDevice));
         setText(view, R.id.ranging_debug_rssi,
@@ -574,8 +657,9 @@ public class NearbyBeaconsFragment extends ListFragment
       PwsResult pwsResult = pwPair.getPwsResult();
       setText(view, R.id.metadata_debug_rank,
           getString(R.string.metadata_debug_rank_prefix)
-          + new DecimalFormat("##.##").format(0));  // We currently do not use rank.
-      if (Utils.isResolvableDevice(urlDevice)) {
+          + new DecimalFormat("##.##").format(rank));  // PSW-based ranking
+
+      if (PswUtils.isResolvableDevice(urlDevice)) {
         setText(view, R.id.metadata_debug_pws_trip_time,
             getString(R.string.metadata_debug_pws_trip_time_prefix)
                 + new DecimalFormat("##.##s")

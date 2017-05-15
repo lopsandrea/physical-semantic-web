@@ -22,4 +22,9 @@
           app:showAsAction="never"
           android:orderInCategory="4"
           android:id="@+id/action_demos"/>
+
+    <item android:title="@string/action_owl_manager"
+        app:showAsAction="never"
+        android:orderInCategory="5"
+        android:id="@+id/action_owlmanager"/>
 </menu>

@@ -1,0 +1,319 @@
+Prefix: : <http://sisinflab.poliba.it/ontologies/psw-vienna#>
+Prefix: daml: <http://www.daml.org/2001/03/daml+oil#>
+Prefix: dc: <http://purl.org/dc/elements/1.1/>
+Prefix: og: <http://ogp.me/ns#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: psw: <http://sisinflab.poliba.it/ontologies/psw-vienna#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://sisinflab.poliba.it/ontologies/psw-vienna#Augustinerkirche>
+
+
+AnnotationProperty: og:description
+
+    
+AnnotationProperty: og:image
+
+    
+AnnotationProperty: og:title
+
+    
+AnnotationProperty: og:type
+
+    
+AnnotationProperty: og:url
+
+    
+Datatype: rdf:PlainLiteral
+
+    
+Datatype: xsd:anyURI
+
+    
+Datatype: xsd:string
+
+    
+ObjectProperty: psw:ceiling_style
+
+    Range: 
+        psw:Style
+    
+    
+ObjectProperty: psw:has_age
+
+    Range: 
+        psw:Age
+    
+    
+ObjectProperty: psw:has_aisle
+
+    Range: 
+        psw:Aisle
+    
+    
+ObjectProperty: psw:has_altar
+
+    Domain: 
+        psw:Church
+    
+    Range: 
+        psw:Altar
+    
+    
+ObjectProperty: psw:has_apse
+
+    Range: 
+        psw:Apse
+    
+    
+ObjectProperty: psw:has_balcony
+
+    Range: 
+        psw:Balcony
+    
+    
+ObjectProperty: psw:has_cathedra
+
+    
+ObjectProperty: psw:has_ceiling
+
+    
+ObjectProperty: psw:has_chapel
+
+    
+ObjectProperty: psw:has_character
+
+    Range: 
+        psw:Character
+    
+    
+ObjectProperty: psw:has_courtyard
+
+    Range: 
+        psw:Courtyard
+    
+    
+ObjectProperty: psw:has_crest
+
+    Range: 
+        psw:Crest
+    
+    
+ObjectProperty: psw:has_crypt
+
+    
+ObjectProperty: psw:has_depth
+
+    
+ObjectProperty: psw:has_destination
+
+    Range: 
+        psw:Destination
+    
+    
+ObjectProperty: psw:has_dome
+
+    
+ObjectProperty: psw:has_drawning
+
+    
+ObjectProperty: psw:has_floor_plan
+
+    
+ObjectProperty: psw:has_floors
+
+    
+ObjectProperty: psw:has_lesene
+
+    
+ObjectProperty: psw:has_material
+
+    Range: 
+        psw:Material
+    
+    
+ObjectProperty: psw:has_matroneum
+
+    Range: 
+        psw:Matroneum
+    
+    
+ObjectProperty: psw:has_moat
+
+    
+ObjectProperty: psw:has_painting
+
+    
+ObjectProperty: psw:has_pillar
+
+    
+ObjectProperty: psw:has_portal
+
+    Range: 
+        psw:Portal
+    
+    
+ObjectProperty: psw:has_position
+
+    Range: 
+        psw:Position
+    
+    
+ObjectProperty: psw:has_room
+
+    
+ObjectProperty: psw:has_rose_window
+
+    Range: 
+        psw:Rose_Window
+    
+    
+ObjectProperty: psw:has_sites
+
+    
+ObjectProperty: psw:has_style
+
+    Range: 
+        psw:Style
+    
+    
+ObjectProperty: psw:has_technique
+
+    Range: 
+        psw:Tecniques
+    
+    
+ObjectProperty: psw:has_tower
+
+    
+ObjectProperty: psw:has_transept
+
+    
+ObjectProperty: psw:has_window
+
+    
+ObjectProperty: psw:hosts
+
+    
+ObjectProperty: psw:is_underground
+
+    
+ObjectProperty: psw:located_in
+
+    Range: 
+        psw:Place
+    
+    
+ObjectProperty: psw:made_by
+
+    
+ObjectProperty: psw:reserved_to
+
+    
+Class: owl:Thing
+
+    
+Class: psw:Age
+
+    
+Class: psw:Aisle
+
+    
+Class: psw:Altar
+
+    
+Class: psw:Apse
+
+    
+Class: psw:Balcony
+
+    
+Class: psw:Character
+
+    
+Class: psw:Church
+
+    
+Class: psw:Courtyard
+
+    
+Class: psw:Crest
+
+    
+Class: psw:Crypt
+
+    
+Class: psw:Destination
+
+    
+Class: psw:Floor_Plan
+
+    
+Class: psw:Gothic
+
+    
+Class: psw:Material
+
+    
+Class: psw:Matroneum
+
+    
+Class: psw:Middle_Age
+
+    
+Class: psw:Place
+
+    
+Class: psw:Portal
+
+    
+Class: psw:Position
+
+    
+Class: psw:Religious
+
+    
+Class: psw:Rose_Window
+
+    
+Class: psw:Style
+
+    
+Class: psw:Tecniques
+
+    
+Class: psw:Vienna
+
+    
+Individual: psw:Augustinerkirche
+
+    Annotations: 
+        og:description "Augustinerkloster & Pfarre St. Augustin"^^xsd:string,
+        og:title "Augustinerkirche Wien"^^xsd:string,
+        og:url "http://augustinerkirche.augustiner.at/"^^xsd:anyURI
+    
+    Types: 
+        psw:Church
+         and (psw:has_age some owl:Thing)
+         and (psw:has_crypt some owl:Thing)
+         and (psw:has_destination some owl:Thing)
+         and (psw:has_style some owl:Thing)
+         and (psw:located_in some owl:Thing)
+         and (psw:has_age only 
+            (psw:Middle_Age))
+         and (psw:has_crypt only 
+            (psw:Crypt))
+         and (psw:has_destination only 
+            (psw:Religious))
+         and (psw:has_style only 
+            (psw:Gothic))
+         and (psw:located_in only 
+            (psw:Vienna))
+         and (psw:has_aisle min 1 owl:Thing)
+         and (psw:has_aisle max 1 owl:Thing)
+		 

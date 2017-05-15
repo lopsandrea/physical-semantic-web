@@ -53,6 +53,28 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="@string/psw_settings_key"
+        android:title="@string/psw_settings_title"
+        android:persistent="false">
+
+        <CheckBoxPreference
+            android:key="@string/psw_key"
+            android:title="@string/psw_title"
+            android:summary="@string/psw_summary"
+            android:defaultValue="true" />
+
+        <ListPreference
+            android:dependency="@string/psw_key"
+            android:key="@string/psw_weight_key"
+            android:title="@string/psw_weight_title"
+            android:summary="@string/psw_weight_summary"
+            android:defaultValue="75"
+            android:entries="@array/scoreArray"
+            android:entryValues="@array/scoreValues" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/debug_settings_title"
         android:persistent="false">
 

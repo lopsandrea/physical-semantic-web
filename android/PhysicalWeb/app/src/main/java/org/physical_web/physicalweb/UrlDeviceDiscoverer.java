@@ -55,6 +55,6 @@ abstract class UrlDeviceDiscoverer {
   }
 
   public interface UrlDeviceDiscoveryCallback {
-    public void onUrlDeviceDiscovered(UrlDevice urlDevice);
+    void onUrlDeviceDiscovered(UrlDevice urlDevice);
   }
 }

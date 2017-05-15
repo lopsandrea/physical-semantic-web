@@ -35,7 +35,7 @@ import java.util.UUID;
 **/
 public class AdvertiseDataUtils {
     private static final String TAG = "AdvertiseDataUtils";
-    private static final ParcelUuid EDDYSTONE_BEACON_UUID = ParcelUuid.fromString(
+    protected static final ParcelUuid EDDYSTONE_BEACON_UUID = ParcelUuid.fromString(
         "0000FEAA-0000-1000-8000-00805F9B34FB");
     /**
      * URI Scheme maps a byte code into the scheme and an optional scheme specific prefix.

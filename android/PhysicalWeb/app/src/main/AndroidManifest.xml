@@ -10,8 +10,11 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.LOCAL_MAC_ADDRESS"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission
         android:required="true"
         android:name="android.permission.ACCESS_WIFI_STATE"/>
@@ -78,11 +81,6 @@
           android:theme="@android:style/Theme.Translucent.NoTitleBar"
           android:excludeFromRecents="true">
         </activity>
-        <service
-            android:name=".UrlDeviceDiscoveryService"
-            android:enabled="true"
-            android:exported="false">
-        </service>
 
         <service
             android:name=".ScreenListenerService"
@@ -125,6 +123,20 @@
           android:stopWithTask="false"
           android:exported="false">
         </service>
+
+        <!-- This is required for the PSW scan library. -->
+        <service
+            android:name="it.poliba.sisinflab.psw.PswDeviceDiscoveryService"
+            android:enabled="true"
+            android:exported="false">
+        </service>
+        <service
+            android:name="it.poliba.sisinflab.psw.PswUidBroadcastService"
+            android:enabled="true"
+            android:stopWithTask="false"
+            android:exported="false">
+        </service>
+
         <!-- This is required for the scan library. -->
         <receiver android:name="org.uribeacon.scan.compat.ScanWakefulBroadcastReceiver">
         </receiver>

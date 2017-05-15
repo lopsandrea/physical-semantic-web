@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- CONFIG -->
+    <string name="psw_key">phy_sem_web</string>
+    <string name="psw_weight_key">psw_weight</string>
+    <string name="psw_settings_key">psw_settings</string>
+
+    <!-- STRINGS -->
+    <string name="action_about_psw">About PSW</string>
+    <string name="action_owl_manager">OWL Manager</string>
+    <string name="psw_settings_title">Physical Semantic Web Settings</string>
+    <string name="psw_title">Enable Physical Semantic Web</string>
+    <string name="psw_summary">Enabling Physical Semantic Web allows you to find PSW beacons.</string>
+    <string name="psw_dialog_title">Select action</string>
+    <string name="psw_no_network">Network Url not available!</string>
+    <string name="psw_no_owl">OWL annotation not available!</string>
+
+    <string name="psw_weight_title">Ranking Function</string>
+    <string name="psw_weight_summary">Set a semantic-oriented or a distance-based ranking.</string>
+
+    <string name="psw_url_beacon_title">PSW-URL Beacon</string>
+    <string name="psw_uid_beacon_title">PSW-UID Beacon</string>
+    <string name="psw_uid_description">This is an OWL annotation downloaded from a local beacon over ble.</string>
+    <string name="psw_url_description">This is an OWL annotation downloaded from a remote server.</string>
+
+    <string name="psw_uid_broadcasting_confirmation">Broadcasting PSW-UID Beacon</string>
+    <string name="psw_uid_notification_title">Physical Semantic Web is sharing as a PSW_UID Beacon</string>
+    <string name="psw_uid_label">"Local OWL fragment @ "</string>
+
+    <string name="psw_uid_demo_title">PSW-UID Beacon Demo</string>
+    <string name="psw_uid_demo_summary">Turns this device into a PSW-UID Beacon advertising an offline OWL resource. To see the beacon, install the Physical Semantic Web app on a second device and enable PSW features in the app settings.</string>
+    <string name="psw_resource_demo_title">OWL Resources</string>
+
+    <!-- ARRAYS -->
+    <string-array name="psw_action_array">
+        <item>Open URL</item>
+        <item>Show OWL fragment</item>
+    </string-array>
+
+    <string-array name="scoreArray">
+        <item>Full Distance-based (0)</item>
+        <item>Distance-oriented (25)</item>
+        <item>Balanced (50)</item>
+        <item>Semantic-oriented (75)</item>
+        <item>Full Semantic-based (100)</item>
+    </string-array>
+
+    <string-array name="scoreValues">
+        <item>0</item>
+        <item>25</item>
+        <item>50</item>
+        <item>75</item>
+        <item>100</item>
+    </string-array>
+
+    <string-array name="owl_resource_array">
+        <item>Augustinerkirche</item>
+        <item>Karlskirche</item>
+        <item>Wien Parliament</item>
+    </string-array>
+
+    <!-- COLORS -->
+    <color name="rank_very_high">#4CAF50</color>
+    <color name="rank_high">#8BC34A</color>
+    <color name="rank_medium">#FFC107</color>
+    <color name="rank_low">#F44336</color>
+    <color name="rank_very_low">#9C27B0</color>
+
+</resources>

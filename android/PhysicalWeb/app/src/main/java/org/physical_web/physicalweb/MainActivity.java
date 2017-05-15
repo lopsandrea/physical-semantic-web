@@ -32,6 +32,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import it.poliba.sisinflab.owleditor.OWLBuilderFragment;
+import it.poliba.sisinflab.owleditor.OWLEditorActivity;
+import it.poliba.sisinflab.owleditor.OWLClassFragment;
+import it.poliba.sisinflab.owleditor.OWLObjectPropertyFragment;
+import it.poliba.sisinflab.psw.PswUtils;
+
 /**
  * The main entry point for the app.
  */
@@ -40,6 +46,7 @@ public class MainActivity extends Activity {
   private static final String TAG  = MainActivity.class.getSimpleName();
   private static final int REQUEST_ENABLE_BT = 0;
   private static final int REQUEST_LOCATION = 1;
+  private static final int REQUEST_LOCAL_DRIVE = 2;
   private static final String NEARBY_BEACONS_FRAGMENT_TAG = "NearbyBeaconsFragmentTag";
   private static final String SETTINGS_FRAGMENT_TAG = "SettingsFragmentTag";
   private static final String BLOCKED_URLS_FRAGMENT_TAG = "BlockedUrlsFragmentTag";
@@ -80,6 +87,9 @@ public class MainActivity extends Activity {
         return true;
       case R.id.action_demos:
         showDemosFragment();
+        return true;
+      case R.id.action_owlmanager:
+        showOWLManager();
         return true;
       // If the action bar up button was pressed
       case android.R.id.home:
@@ -130,7 +140,7 @@ public class MainActivity extends Activity {
   public void onRequestPermissionsResult(int requestCode,
       String permissions[], int[] grantResults) {
     switch (requestCode) {
-      case REQUEST_LOCATION: {
+        case REQUEST_LOCATION: {
         // If request is cancelled, the result arrays are empty.
         if (grantResults.length > 0
             && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -141,7 +151,14 @@ public class MainActivity extends Activity {
           finish();
         }
         break;
-      }
+        }
+        case REQUEST_LOCAL_DRIVE:
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Log.e("value", "Permission Granted, Now you can use local drive .");
+            } else {
+                Log.e("value", "Permission Denied, You cannot use local drive .");
+            }
+            break;
       default:
     }
   }
@@ -163,6 +180,8 @@ public class MainActivity extends Activity {
       if (Utils.checkIfUserHasOptedIn(this)) {
         Log.d(TAG, "checkingPermissions");
         checkPermissions(btAdapter);
+        if (!checkFolderPermissions())
+            requestFolderPermission();
       } else {
         // Show the oob activity
         Intent intent = new Intent(this, OobActivity.class);
@@ -171,7 +190,24 @@ public class MainActivity extends Activity {
     }
   }
 
-  private void finishLoad() {
+    private boolean checkFolderPermissions() {
+        int result = ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (result == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private void requestFolderPermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            Toast.makeText(this, "Write External Storage permission allows us to do store data. Please allow this permission in App Settings.", Toast.LENGTH_LONG).show();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_LOCAL_DRIVE);
+        }
+    }
+
+    private void finishLoad() {
     Intent intent = new Intent(this, ScreenListenerService.class);
     startService(intent);
     NearbyBeaconsFragment nearbyBeaconsFragment =
@@ -224,5 +260,16 @@ public class MainActivity extends Activity {
       transaction.addToBackStack(null);
     }
     transaction.commit();
+  }
+
+  private void showOWLManager() {
+      String owl = PswUtils.getOWL(getResources().openRawResource(R.raw.cultural_vienna));
+      if (owl != null) {
+          Intent intent = new Intent(this, OWLEditorActivity.class);
+          intent.putExtra(getString(R.string.owl_string_key), owl);
+          intent.putExtra(getString(R.string.owl_fragment_key), OWLBuilderFragment.class.getSimpleName());
+          startActivity(intent);
+      } else
+          Toast.makeText(this, getString(R.string.psw_no_owl), Toast.LENGTH_SHORT).show();
   }
 }

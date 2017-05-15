@@ -1,0 +1,359 @@
+Prefix: : <http://sisinflab.poliba.it/ontologies/psw-vienna#>
+Prefix: daml: <http://www.daml.org/2001/03/daml+oil#>
+Prefix: dc: <http://purl.org/dc/elements/1.1/>
+Prefix: og: <http://ogp.me/ns#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: psw: <http://sisinflab.poliba.it/ontologies/psw-vienna#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://sisinflab.poliba.it/ontologies/psw-vienna#Karlskirche>
+
+
+AnnotationProperty: og:description
+
+    
+AnnotationProperty: og:image
+
+    
+AnnotationProperty: og:title
+
+    
+AnnotationProperty: og:type
+
+    
+AnnotationProperty: og:url   
+
+    
+Datatype: rdf:PlainLiteral
+
+    
+Datatype: xsd:anyURI
+
+    
+Datatype: xsd:string
+
+    
+ObjectProperty: psw:ceiling_style
+
+    Domain: 
+        psw:Building
+    
+    
+ObjectProperty: psw:has_age
+
+    Domain: 
+        psw:Work
+    
+    
+ObjectProperty: psw:has_aisle
+
+    Domain: 
+        psw:Church
+    
+    
+ObjectProperty: psw:has_altar
+
+    Domain: 
+        psw:Church
+    
+    Range: 
+        psw:Altar
+    
+    
+ObjectProperty: psw:has_apse
+
+    Domain: 
+        psw:Church
+    
+    
+ObjectProperty: psw:has_balcony
+
+    Domain: 
+        psw:Building
+    
+    
+ObjectProperty: psw:has_cathedra
+
+    
+ObjectProperty: psw:has_ceiling
+
+    
+ObjectProperty: psw:has_chapel
+
+    Domain: 
+        psw:Building
+    
+    
+ObjectProperty: psw:has_character
+
+    Domain: 
+        psw:Inscription
+    
+    
+ObjectProperty: psw:has_courtyard
+
+    Domain: 
+        psw:Building
+    
+    
+ObjectProperty: psw:has_crest
+
+    Domain: 
+        psw:Work
+    
+    
+ObjectProperty: psw:has_crypt
+
+    
+ObjectProperty: psw:has_depth
+
+    
+ObjectProperty: psw:has_destination
+
+    Domain: 
+        psw:Building
+    
+    
+ObjectProperty: psw:has_dome
+
+    Domain: 
+        psw:Church
+    
+    
+ObjectProperty: psw:has_drawning
+
+    
+ObjectProperty: psw:has_floor_plan
+
+    Domain: 
+        psw:Building
+    
+    
+ObjectProperty: psw:has_floors
+
+    
+ObjectProperty: psw:has_lesene
+
+    
+ObjectProperty: psw:has_material
+
+    Domain: 
+        psw:Work
+    
+    
+ObjectProperty: psw:has_matroneum
+
+    Domain: 
+        psw:Building
+    
+    
+ObjectProperty: psw:has_moat
+
+    
+ObjectProperty: psw:has_painting
+
+    
+ObjectProperty: psw:has_pillar
+
+    
+ObjectProperty: psw:has_portal
+
+    Domain: 
+        psw:Building
+    
+    
+ObjectProperty: psw:has_position
+
+    Domain: 
+        psw:Work
+    
+    
+ObjectProperty: psw:has_room
+
+    
+ObjectProperty: psw:has_rose_window
+
+    Domain: 
+        psw:Building
+    
+    
+ObjectProperty: psw:has_sites
+
+    
+ObjectProperty: psw:has_style
+
+    Domain: 
+        psw:Work
+    
+    
+ObjectProperty: psw:has_technique
+
+    Domain: 
+        psw:Work
+    
+    
+ObjectProperty: psw:has_tower
+
+    
+ObjectProperty: psw:has_transept
+
+    
+ObjectProperty: psw:has_window
+
+    
+ObjectProperty: psw:hosts
+
+    
+ObjectProperty: psw:is_underground
+
+    
+ObjectProperty: psw:located_in
+
+    Domain: 
+        psw:Building
+    
+    
+ObjectProperty: psw:made_by
+
+    
+ObjectProperty: psw:reserved_to
+
+    
+Class: owl:Thing
+
+    
+Class: psw:Age
+
+    
+Class: psw:Aisle
+
+    
+Class: psw:Altar
+
+    
+Class: psw:Apse
+
+    
+Class: psw:Balcony
+
+    
+Class: psw:Baroque
+
+    
+Class: psw:Building
+
+    
+Class: psw:Character
+
+    
+Class: psw:Church
+
+    
+Class: psw:Courtyard
+
+    
+Class: psw:Crest
+
+    
+Class: psw:Destination
+
+    
+Class: psw:Elliptical
+
+    
+Class: psw:Floor_Plan
+
+    
+Class: psw:Inscription
+
+    
+Class: psw:Lateral
+
+    
+Class: psw:Marble
+
+    
+Class: psw:Material
+
+    
+Class: psw:Matroneum
+
+    
+Class: psw:Modern_Age
+
+    
+Class: psw:Place
+
+    
+Class: psw:Portal
+
+    
+Class: psw:Position
+
+    
+Class: psw:Religious
+
+    
+Class: psw:Romanic
+
+    
+Class: psw:Rose_Window
+
+    
+Class: psw:Style
+
+    
+Class: psw:Tecniques
+
+    
+Class: psw:Vienna
+
+    
+Class: psw:Work
+
+    
+Individual: psw:Karlskirche
+
+    Annotations: 
+        og:description "Karlskirche Wien"^^xsd:string,
+        og:title "Karlskirche Wien"^^xsd:string,
+        og:url "http://www.karlskirche.at"^^xsd:anyURI
+    
+    Types: 
+        psw:Church
+         and (psw:has_age some owl:Thing)
+         and (psw:has_destination some owl:Thing)
+         and (psw:has_dome some owl:Thing)
+         and (psw:has_floor_plan some owl:Thing)
+         and (psw:has_material some owl:Thing)
+         and (psw:has_style some owl:Thing)
+         and (psw:located_in some owl:Thing)
+         and (psw:has_age only 
+            (psw:Modern_Age))
+         and (psw:has_destination only 
+            (psw:Religious))
+         and (psw:has_dome only 
+            ((psw:has_floor_plan only 
+                (psw:Elliptical))
+             and (psw:has_style only 
+                (psw:Romanic))))
+         and (psw:has_floor_plan only 
+            (psw:Elliptical))
+         and (psw:has_material only 
+            (psw:Marble))
+         and (psw:has_pillar only 
+            ((psw:has_position only 
+                (psw:Lateral))))
+         and (psw:has_style only 
+            (psw:Baroque))
+         and (psw:located_in only 
+            (psw:Vienna))
+         and (psw:has_pillar min 2 owl:Thing)
+         and (psw:has_pillar max 2 owl:Thing)
+    
+    

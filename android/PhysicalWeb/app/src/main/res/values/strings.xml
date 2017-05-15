@@ -48,7 +48,6 @@
     <string name="wifi_port_summary">Click to change port</string>
     <string name="unblock_button">Unblock</string>
     <string name="folder_text">Folder</string>
-
     <plurals name="numFoundBeacons">
         <item quantity="one">Beacon Nearby</item>
         <item quantity="other">Beacons Nearby</item>

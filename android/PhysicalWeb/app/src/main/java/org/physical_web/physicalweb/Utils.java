@@ -62,13 +62,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.zip.GZIPInputStream;
 
+import it.poliba.sisinflab.psw.PswUtils;
 
 
 /**
  * This class is for various static utilities, largely for manipulation of data structures provided
  * by the collections library.
  */
-class Utils {
+public class Utils {
   public static final String PROD_ENDPOINT = "https://url-caster.appspot.com";
   public static final int PROD_ENDPOINT_VERSION = 1;
   public static final String DEV_ENDPOINT = "https://url-caster-dev.appspot.com";
@@ -87,7 +88,7 @@ class Utils {
   private static final String DISCOVERY_SERVICE_PREFS_KEY =
       "org.physical_web.physicalweb.DISCOVERY_SERVICE_PREFS";
   private static final String SCANTIME_KEY = "scantime";
-  private static final String TYPE_KEY = "type";
+  public static final String TYPE_KEY = "type";
   private static final String PUBLIC_KEY = "public";
   private static final String TITLE_KEY = "title";
   private static final String DESCRIPTION_KEY = "description";
@@ -98,8 +99,8 @@ class Utils {
   private static final String WIFIDIRECT_PORT_KEY = "wifiport";
   private static final RegionResolver REGION_RESOLVER = new RegionResolver();
   private static final String SEPARATOR = "\0";
-  private static Set<String> mFavoriteUrls = new HashSet<>();
-  private static Set<String> mBlockedUrls = new HashSet<>();
+  protected static Set<String> mFavoriteUrls = new HashSet<>();
+  protected static Set<String> mBlockedUrls = new HashSet<>();
   private static final int GZIP_SIGNATURE_LENGTH = 2;
 
   // Compares PwPairs by first considering if it has been favorited
@@ -975,7 +976,11 @@ class Utils {
    * @return The smoothed RSSI for the device.
    */
   public static double getSmoothedRssi(UrlDevice urlDevice) {
-    return REGION_RESOLVER.getSmoothedRssi(urlDevice.getId());
+      try {
+          return REGION_RESOLVER.getSmoothedRssi(urlDevice.getId());
+      } catch (Exception e) {
+          return 0;
+      }
   }
 
   /**
@@ -996,7 +1001,7 @@ class Utils {
     return RangingUtils.toString(REGION_RESOLVER.getRegion(urlDevice.getId()));
   }
 
-  static class UrlDeviceBuilder extends UrlDevice.Builder {
+  public static class UrlDeviceBuilder extends UrlDevice.Builder {
 
     /**
      * Constructor for the UrlDeviceBuilder.
@@ -1105,7 +1110,7 @@ class Utils {
     }
   }
 
-  static class PwsResultBuilder extends PwsResult.Builder {
+  public static class PwsResultBuilder extends PwsResult.Builder {
     /**
      * Constructor for the PwsResultBuilder.
      * @param pwsResult The base result of the PwsResultBuilder.

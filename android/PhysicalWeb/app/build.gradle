@@ -4,11 +4,11 @@ apply plugin: 'pmd'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.1"
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
         applicationId "physical_web.org.physicalweb"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 18
         versionName "0.2.1"
@@ -71,13 +71,26 @@ dependencies {
         exclude group: 'org.json', module: 'json'
     }
 
+    compile(project(':owleditor'))
+
     compile 'com.android.volley:volley@aar'
     compile 'org.uribeacon:uribeacon-library-release@aar'
-    compile 'com.android.support:appcompat-v7:24.0.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.youview:tinydnssd:1.2.7'
     compile 'org.nanohttpd:nanohttpd:2.3.0'
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.10.19'
+
+    /*** Physical Semantic Web - Additional libraries ***/
+    // OWLAPI-distribution
+    compile ('net.sourceforge.owlapi:owlapi-distribution:3.4.10') { transitive = false }
+    // Colt library
+    compile 'colt:colt:1.2.0'
+    // Mini-ME library
+    compile files('libs/minime-beta-2.0.0.jar')
+    // Apache Commons IO library
+    compile 'commons-io:commons-io:2.5'
+
 
     checkstyleRules files('config/checkstyle/checkstyle.xml')
     findbugsRules files('config/findbugs/exclude-filter.xml')

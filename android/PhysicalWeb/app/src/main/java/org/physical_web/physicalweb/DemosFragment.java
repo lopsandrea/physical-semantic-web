@@ -35,6 +35,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.poliba.sisinflab.psw.demos.PswUidBeaconHelloWorld;
+
 /**
  * This class shows a list of demos.
  */
@@ -80,6 +82,7 @@ public class DemosFragment extends ListFragment {
   private void initialize() {
     if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
       mAdapter.addItem(new FatBeaconHelloWorld(getActivity()));
+      mAdapter.addItem(new PswUidBeaconHelloWorld(getActivity()));
     }
     mAdapter.addItem(new WifiDirectHelloWorld(getActivity()));
   }
