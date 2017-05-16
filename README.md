@@ -34,7 +34,7 @@ In the proposed solution, the user profile consists of a concept expression incl
 
 Several resource domains (cultural heritage, shopping, accommodation, transportation, points of interest) can be explored by simply selecting the proper ontology. In the same way, semantic annotations referred to object features will include concept expression referred to common domain ontologies. 
 
-### Ranking and results Refinement
+### Ranking and results refinement
 For each pair <user profile, resource>, a score value is calculated to assess the similarity between the user profile and the beacon.	Exploiting non-standard inference, a full explanation about the score is given to the user evidencing which compatible and/or missing features of the resource determine the result. Analogously, in case of incompatibility profile/resource, semantic-based services are used to detect conflicting properties and elements of the beacons annotations.
 
 Finally, detected beacons and related rank are displayed in an ordered list. Each beacon could also specify a link to a webpage associated to an element of the list. Specific user preferences can be also taken into account by implementing the following features:

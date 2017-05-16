@@ -17,7 +17,7 @@ All objects containing OWL-based information were implemented as [Parcelable](ht
 The *OWLEditor* library was developed as an Android module in order to be easily integrated as dependency within a  project following these steps:
 
 - Clone or download the repository
-- Edit the *settings.gradle* file to include the Physical Web Collection library into your gradle project
+- Edit the *settings.gradle* file to include the OWLEditor library into your gradle project
 
 ```
 include ':owleditor'
