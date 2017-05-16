@@ -2,7 +2,7 @@
 
 This java library contains data structures and convenience utilities for
 storing metadata related to devices that broadcast URLs. This library is
-intended to help bootstrap new Physical Web clients written in java.
+intended to help bootstrap new Physical Web clients written in Java.
 
 ## Physical Semantic Web features
 
@@ -14,10 +14,10 @@ intended to help bootstrap new Physical Web clients written in java.
 
 ## Usage
 
-The Physical Web Collection library was developed as a *gradle* module in order to be easily integrated as dependency within a Java project following these steps:
+The Physical Web Collection library was developed as a *Gradle* module in order to be easily integrated as dependency within a Java project following these steps:
 
 - Clone or download the repository
-- Edit the *settings.gradle* file to include the Physical Web Collection library into your gradle project
+- Edit the *settings.gradle* file to include the Physical Web Collection library into your Gradle project
 
 ```
 include ':libs'
