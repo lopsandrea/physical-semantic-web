@@ -1,6 +1,6 @@
 # The Physical Semantic Web
 
-<img align="left" src="http://sisinflab.poliba.it/swottools/physicalweb/img/spw.png" hspace="15" width="70px" style="float: left">
+<img align="left" src="http://sisinflab.poliba.it/swottools/physicalweb/img/psw.png" hspace="15" width="70px" style="float: left">
 
 Semantic Web technologies promote interoperability and intelligent information processing in ubiquitous computing. The **Semantic Web** and the **Internet of Things** paradigms are even more converging toward the so-called **Semantic Web of Things** (SWoT) [[Ruta *et al.*, ICSC 2012]](http://sisinflab.poliba.it/publications/2012/RSD12/) enabling semantic-enhanced pervasive computing by embedding intelligence into ordinary objects and environments through a large number of heterogeneous micro-devices, each conveying a small amount of information.	
 
