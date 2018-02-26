@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Physical Web</string>
+    <string name="app_name">Physical Web WWW18</string>
     <string name="action_about">About</string>
     <string name="action_blocked">Blocked URLs</string>
     <string name="about_version_label">Version</string>
@@ -82,4 +82,15 @@
     <string name="wifi_direct_demo_summary">Turns this device into a Wi-Fi Direct beacon advertising an offline webpage with a title of Hello World. To see the beacon, install the Physical Web app on a second device and enable Wi-Fi Direct in the app settings. For best reliability, use two devices running Android Nougat.</string>
     <string name="wifi_direct_connection_failed">Connection failed</string>
     <string name="wifi_direct_connection_succeeded">Connection to device succeeded, trying to connect to network</string>
+
+    <string name="title_activity_demo_wine">Find My Wine!</string>
+    <string name="dummy_button">GET STARTED</string>
+    <string name="title_activity_demo_tab">Find My Wine!</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="fragment_name_key">fragmentName</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="beacon_properties_key">beacon_properties_key</string>
+
 </resources>

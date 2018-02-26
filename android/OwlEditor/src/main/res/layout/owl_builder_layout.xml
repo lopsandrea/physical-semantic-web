@@ -35,6 +35,171 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_alignBottom="@+id/req_list"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/layoutFabMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="335dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cvtMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="owl:minCardinality"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:background="@drawable/rounded_box"
+            android:padding="10dp"
+            android:layout_marginBottom="3dp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:id="@+id/fabMiniMin"
+            style="@style/FabSmall"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_keyboard_arrow_right_24dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignBottom="@+id/req_list"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/layoutFabMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="270dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cvtMax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="owl:maxCardinality"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold"
+            android:background="@drawable/rounded_box"
+            android:padding="10dp"
+            android:layout_marginBottom="3dp" />
+
+        <ImageButton
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:id="@+id/fabMiniMax"
+            style="@style/FabSmall"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_keyboard_arrow_left_24dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignBottom="@+id/req_list"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/layoutFabAllValues"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="205dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cvtAllValues"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="owl:allValuesFrom"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold"
+            android:background="@drawable/rounded_box"
+            android:padding="10dp"
+            android:layout_marginBottom="3dp" />
+
+        <ImageButton
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:id="@+id/fabMiniAllValues"
+            style="@style/FabSmall"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_fullscreen_exit_24dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignBottom="@+id/req_list"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/layoutFabNot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="140dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cvtNot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="owl:complementOf"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold"
+            android:background="@drawable/rounded_box"
+            android:padding="10dp"
+            android:layout_marginBottom="3dp" />
+
+        <ImageButton
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:id="@+id/fabMiniNot"
+            style="@style/FabSmall"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_remove_circle_outline_24dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignBottom="@+id/req_list"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/layoutFabClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="75dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cvtClass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="owl:Class"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold"
+            android:background="@drawable/rounded_box"
+            android:padding="10dp"
+            android:layout_marginBottom="3dp" />
+
+        <ImageButton
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:id="@+id/fabMiniClass"
+            style="@style/FabSmall"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_label_outline_24dp" />
+    </LinearLayout>
+
     <ImageButton
         android:id="@+id/fab"
         style="@style/FloatingActionButton"

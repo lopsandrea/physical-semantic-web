@@ -596,13 +596,13 @@ public class NearbyBeaconsFragment extends ListFragment
           public void onClick(View v) {
             Utils.toggleFavorite(siteUrl);
             Utils.saveFavorites(getActivity());
-            ((Button) v).setBackgroundResource(R.drawable.ic_star_border_black_24dp);
+            ((Button) v).setBackgroundResource(R.drawable.ic_star_border_wine_24dp);
             notifyDataSetChanged();
           }
         });
       } else {
         ((Button) view.findViewById(R.id.star)).setBackgroundResource(
-            R.drawable.ic_star_border_black_24dp);
+            R.drawable.ic_star_border_wine_24dp);
         ((Button) view.findViewById(R.id.star)).setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {

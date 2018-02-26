@@ -30,7 +30,9 @@
             android:text="Medium Text"
             android:textColor="@color/text_color"
             android:textAppearance="@android:style/TextAppearance.Medium"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:maxLines="1"
+            android:ellipsize="end" />
 
         <TextView
             android:id="@+id/owl_iri"
@@ -42,7 +44,9 @@
             android:text="Samll Text"
             android:textColor="@color/text_color"
             android:textAppearance="@android:style/TextAppearance.Small"
-            android:textSize="10dp" />
+            android:textSize="10dp"
+            android:maxLines="1"
+            android:ellipsize="end" />
     </LinearLayout>
 
 </LinearLayout>

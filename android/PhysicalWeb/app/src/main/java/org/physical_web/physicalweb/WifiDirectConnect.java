@@ -40,7 +40,7 @@ import android.widget.Toast;
  * This class is for using WifiDirect to create a WifiDirect
  * P2P connection with the Physical Web Device.
  */
-class WifiDirectConnect {
+public class WifiDirectConnect {
   private static final String TAG = WifiDirectConnect.class.getSimpleName();
   private ProgressDialog mProgress;
   private Context mContext;

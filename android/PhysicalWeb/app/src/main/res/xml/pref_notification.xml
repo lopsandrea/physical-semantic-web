@@ -1,0 +1,42 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- A 'parent' preference, which enables/disables child preferences (below)
+         when checked/unchecked. -->
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/enable_psw_uid_adv"
+        android:title="@string/pref_title_enable_psw_uid_adv" />
+
+    <ListPreference
+        android:key="@string/psw_uid_adv_temperature"
+        android:dependency="@string/enable_psw_uid_adv"
+        android:title="Temperature Sensor"
+        android:entries="@array/temp_entries"
+        android:entryValues="@array/five_levels_values"
+        android:defaultValue="2" />
+
+    <ListPreference
+        android:key="@string/psw_uid_adv_humidity"
+        android:dependency="@string/enable_psw_uid_adv"
+        android:title="Humidity Sensor"
+        android:entries="@array/humidity_entries"
+        android:entryValues="@array/five_levels_values"
+        android:defaultValue="2" />
+
+    <ListPreference
+        android:key="@string/psw_uid_adv_light"
+        android:dependency="@string/enable_psw_uid_adv"
+        android:title="Light Sensor"
+        android:entries="@array/light_entries"
+        android:entryValues="@array/two_levels_values"
+        android:defaultValue="0" />
+
+    <ListPreference
+        android:key="@string/psw_uid_adv_accelerometer"
+        android:dependency="@string/enable_psw_uid_adv"
+        android:title="Accelerometer"
+        android:entries="@array/accelerometer_entries"
+        android:entryValues="@array/two_levels_values"
+        android:defaultValue="0" />
+
+</PreferenceScreen>

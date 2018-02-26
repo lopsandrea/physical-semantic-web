@@ -1,6 +1,7 @@
 package it.poliba.sisinflab.psw.owl;
 
 import android.content.Context;
+import android.os.Environment;
 
 import org.physical_web.collection.PwsResult;
 import org.physical_web.physicalweb.Log;
@@ -24,6 +25,7 @@ import java.util.Set;
 import it.poliba.sisinflab.owl.owlapi.MicroReasoner;
 import it.poliba.sisinflab.owl.owlapi.MicroReasonerFactory;
 import it.poliba.sisinflab.owl.owlapi.ResourceNotFoundException;
+import it.poliba.sisinflab.owl.sod.hlds.Abduction;
 import it.poliba.sisinflab.owl.sod.hlds.Contraction;
 import it.poliba.sisinflab.owl.sod.hlds.Item;
 import it.poliba.sisinflab.psw.PswDevice;
@@ -43,21 +45,27 @@ public class KBManager {
     OWLAnnotationProperty descAP = null;
     OWLAnnotationProperty imgAP = null;
 
-    public KBManager(Context mContext) {
+    IRI mRequest = null;
+
+    public KBManager(Context mContext, int ontology) {
         this.mContext = mContext;
         manager = OWLManager.createOWLOntologyManager();
         factory = manager.getOWLDataFactory();
-
-        loadDefaultOntology();
 
         urlAP = factory.getOWLAnnotationProperty(IRI.create("http://ogp.me/ns#url"));
         titleAP = factory.getOWLAnnotationProperty(IRI.create("http://ogp.me/ns#title"));
         descAP = factory.getOWLAnnotationProperty(IRI.create("http://ogp.me/ns#description"));
         imgAP = factory.getOWLAnnotationProperty(IRI.create("http://ogp.me/ns#image"));
+
+        loadOntology(ontology);
     }
 
-    private void loadDefaultOntology() {
-        InputStream onto = mContext.getResources().openRawResource(R.raw.cultural_vienna);
+    public KBManager(Context mContext) {
+        new KBManager(mContext, R.raw.cultural_vienna);
+    }
+
+    private void loadOntology(int onto_resource) {
+        InputStream onto = mContext.getResources().openRawResource(onto_resource);
         try {
             OWLOntology ontology = manager.loadOntologyFromOntologyDocument(onto);
 
@@ -72,6 +80,23 @@ public class KBManager {
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);
+        }
+    }
+
+    public void loadCustomRequest() {
+        try {
+            File owl = new File(Environment.getExternalStorageDirectory().toString() + "/owleditor", "UserRequest.owl");
+
+            OWLOntology tmp;
+            if (owl.exists())
+                tmp = manager.loadOntologyFromOntologyDocument(owl);
+            else
+                tmp = manager.loadOntologyFromOntologyDocument(mContext.getResources().openRawResource(R.raw.mountadam_pinot_noir));
+
+            mRequest = reasoner.loadDemand(tmp).iterator().next();
+            manager.removeOntology(tmp);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -111,6 +136,7 @@ public class KBManager {
                 String title = getAnnotation(tmp, ind, titleAP, ind.getIRI().getFragment());
                 String url = getAnnotation(tmp, ind, urlAP, "");
                 String desc = getAnnotation(tmp, ind, descAP, "");
+                String image = getAnnotation(tmp, ind, imgAP, "");
 
                 // load (if needed) the beacon annotation into the KB
                 if (!isLoaded(ind.getIRI())) {
@@ -122,9 +148,12 @@ public class KBManager {
 
                 PwsResult replacement = new Utils.PwsResultBuilder(pwsResult)
                     .setTitle(title)
-                    .setDescription(url + "\n" + desc)
+                    .setDescription(desc)
+                    //.setDescription(url + "\n" + desc)
+                    .setIconUrl(image)
                     .addExtra(PswDevice.PSW_IRI_KEY, ind.getIRI().toString())
                     .addExtra(PswDevice.PSW_BEACON_URL_KEY, url)
+                    .addExtra(PswDevice.SITEURL_KEY, url)
                     .build();
                 return replacement;
             }
@@ -148,11 +177,16 @@ public class KBManager {
         double rank = 1;
         try {
             IRI resource = IRI.create(individual);
-            IRI request = IRI.create(resource.getNamespace(), "Request4");
-            Item requestItem = reasoner.retrieveSupplyIndividual(request);
-            Item resourceItem = reasoner.retrieveSupplyIndividual(resource);
-            Item empty = new Item(IRI.create("#Empty"));
+            //IRI request = IRI.create(resource.getNamespace(), "Request4");
+            Item requestItem = reasoner.retrieveDemandIndividual(mRequest);
 
+            Item resourceItem = null;
+            if(reasoner.getSupplyIndividuals().contains(resource))
+                resourceItem = reasoner.retrieveSupplyIndividual(resource);
+            else
+                return rank;
+
+            Item empty = new Item(IRI.create("#Empty"));
             double max = empty.description.abduce(requestItem.description).penalty;
 
             if (resourceItem.description.checkCompatibility(requestItem.description)) {
@@ -160,8 +194,9 @@ public class KBManager {
                 rank = pen_a / max;
             } else {
                 Contraction cc = resourceItem.description.contract(requestItem.description);
-                double pen_c = cc.K.abduce(requestItem.description).penalty;
-                rank = pen_c / max;
+                Abduction ca = resourceItem.description.abduce(cc.K);
+                double ca_max = empty.description.abduce(cc.K).penalty;
+                rank = cc.penalty/max + ca.penalty/ca_max;
             }
         } catch (Exception e) {
             e.printStackTrace();

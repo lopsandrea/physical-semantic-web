@@ -5,6 +5,7 @@
     <string name="psw_key">phy_sem_web</string>
     <string name="psw_weight_key">psw_weight</string>
     <string name="psw_settings_key">psw_settings</string>
+    <string name="psw_cache_key">psw_cache</string>
 
     <!-- STRINGS -->
     <string name="action_about_psw">About PSW</string>
@@ -18,6 +19,9 @@
 
     <string name="psw_weight_title">Ranking Function</string>
     <string name="psw_weight_summary">Set a semantic-oriented or a distance-based ranking.</string>
+
+    <string name="psw_cache_title">Caching Time</string>
+    <string name="psw_cache_summary">Set the caching time for the retrieved annotations.</string>
 
     <string name="psw_url_beacon_title">PSW-URL Beacon</string>
     <string name="psw_uid_beacon_title">PSW-UID Beacon</string>
@@ -52,6 +56,20 @@
         <item>50</item>
         <item>75</item>
         <item>100</item>
+    </string-array>
+
+    <string-array name="cacheArray">
+        <item>No Cache</item>
+        <item>Short (30 sec)</item>
+        <item>Medium (60 sec)</item>
+        <item>Long (5 min)</item>
+    </string-array>
+
+    <string-array name="cacheValues">
+        <item>0</item>
+        <item>30</item>
+        <item>60</item>
+        <item>300</item>
     </string-array>
 
     <string-array name="owl_resource_array">

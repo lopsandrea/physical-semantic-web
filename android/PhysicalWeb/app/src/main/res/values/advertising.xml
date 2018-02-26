@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="title_activity_demo_advertising">Advertise PSW-UID Beacon</string>
+    <string name="action_adv">PSW Advertising</string>
+
+    <string name="pref_title_enable_psw_uid_adv">Enable PSW-UID advertising</string>
+
+    <string name="enable_psw_uid_adv">enable_psw_uid_adv</string>
+    <string name="psw_uid_adv_temperature">psw_uid_adv_temperature</string>
+    <string name="psw_uid_adv_humidity">psw_uid_adv_humidity</string>
+    <string name="psw_uid_adv_light">psw_uid_adv_light</string>
+    <string name="psw_uid_adv_accelerometer">psw_uid_adv_accelerometer</string>
+
+    <string-array name="temp_entries">
+        <item>Very Low Temperature</item>
+        <item>Low Temperature</item>
+        <item>Medium Temperature</item>
+        <item>High Temperature</item>
+        <item>Very High Temperature</item>
+    </string-array>
+
+    <string-array name="humidity_entries">
+        <item>Very Low Humidity</item>
+        <item>Low Humidity</item>
+        <item>Moderate Humidity</item>
+        <item>High Humidity</item>
+        <item>Very High Humidity</item>
+    </string-array>
+
+    <string-array name="light_entries">
+        <item>Low Light</item>
+        <item>High Light</item>
+    </string-array>
+
+    <string-array name="accelerometer_entries">
+        <item>Low Acceleration</item>
+        <item>High Acceleration</item>
+    </string-array>
+
+    <string-array name="five_levels_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="two_levels_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+</resources>

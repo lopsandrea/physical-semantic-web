@@ -50,12 +50,20 @@ public class PswEddystoneBeacon extends EddystoneBeacon {
 			byte[] bIns = Arrays.copyOfRange(serviceData, 6, 12);
 			byte[] bMac = Arrays.copyOfRange(serviceData, 12, 18);
 
-			return new UidEddystoneBeacon(flags, txPower, bytesToHex(bMac), new String(bOnto, StandardCharsets.UTF_8), new String(bIns, StandardCharsets.UTF_8));
+			return new UidEddystoneBeacon(flags, txPower, bytesToHex(bMac), bytesToID(bOnto), bytesToID(bIns));
 		}
 		return null;
 	}
 
 	private static String bytesToHex(byte[] bytes) {
+		StringBuilder sb = new StringBuilder(bytes.length * 2);
+		for (byte b : bytes) {
+			sb.append(String.format("%02x", b));
+		}
+		return sb.toString();
+	}
+
+	private static String bytesToID(byte[] bytes) {
 		StringBuilder sb = new StringBuilder(bytes.length * 2);
 		for (byte b : bytes) {
 			sb.append(String.format("%02x", b));

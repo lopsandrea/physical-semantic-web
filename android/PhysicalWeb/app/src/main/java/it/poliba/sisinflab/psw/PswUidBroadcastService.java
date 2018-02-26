@@ -55,6 +55,7 @@ public class PswUidBroadcastService extends Service {
     public static final String MAC_KEY = "mac";
     public static final String ONTO_KEY = "onto";
     public static final String INSTANCE_KEY = "id";
+    public static final String DATA_KEY = "data";
 
     private String mac;
     private String onto;
@@ -185,16 +186,22 @@ public class PswUidBroadcastService extends Service {
         onto = intent.getStringExtra(ONTO_KEY);
         ind = intent.getStringExtra(INSTANCE_KEY);
         resource = intent.getIntExtra(RESOURCE_KEY, -1);
+        data = intent.getByteArrayExtra(DATA_KEY);
 
-        if (mac == null || onto == null || ind == null || resource == -1) {
+        if (mac == null || onto == null || ind == null) {
             return;
         }
-        try {
-            data = Utils.getBytes(getResources().openRawResource(resource));
-        } catch (IOException e) {
-            data = null;
-            Log.e(TAG, "Error reading file");
-        }
+
+        if ((data == null || data.length == 0) && resource != -1) {
+            try {
+                data = Utils.getBytes(getResources().openRawResource(resource));
+            } catch (IOException e) {
+                data = null;
+                Log.e(TAG, "Error reading file");
+            }
+        } else
+            return;
+
         PreferenceManager.getDefaultSharedPreferences(this).edit()
             .putString(PREVIOUS_BROADCAST_PSW_INFO_KEY, mDisplayInfo)
             .apply();
@@ -242,7 +249,6 @@ public class PswUidBroadcastService extends Service {
     };
 
 
-
     /////////////////////////////////
     // utilities
     /////////////////////////////////
@@ -260,8 +266,13 @@ public class PswUidBroadcastService extends Service {
         }
         AdvertiseData advertiseData = AdvertisePswDataUtils.getPswUidAdvertisementData(namespace, instance);
         AdvertiseSettings advertiseSettings = AdvertiseDataUtils.getAdvertiseSettings(true);
-        mBluetoothLeAdvertiser.stopAdvertising(mAdvertiseCallback);
-        mBluetoothLeAdvertiser.startAdvertising(advertiseSettings, advertiseData, mAdvertiseCallback);
+        try {
+            mBluetoothLeAdvertiser.stopAdvertising(mAdvertiseCallback);
+            mBluetoothLeAdvertiser.startAdvertising(advertiseSettings, advertiseData, mAdvertiseCallback);
+        } catch (Exception e) {
+            Toast.makeText(getBaseContext(), "Beacon Advertising not supported!", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
     }
 
     // Turn off PSW-UID broadcasting

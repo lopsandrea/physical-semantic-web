@@ -10,5 +10,6 @@ public class PswDevice {
     public static final String PSW_UID_MAC_KEY = "mac";
     public static final String PSW_IRI_KEY = "iri";
     public static final String PSW_BEACON_URL_KEY = "beacon-url";
+    public static final String SITEURL_KEY = "siteurl";
 
 }

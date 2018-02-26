@@ -72,6 +72,15 @@
             android:entries="@array/scoreArray"
             android:entryValues="@array/scoreValues" />
 
+        <ListPreference
+            android:dependency="@string/psw_key"
+            android:key="@string/psw_cache_key"
+            android:title="@string/psw_cache_title"
+            android:summary="@string/psw_cache_summary"
+            android:defaultValue="30"
+            android:entries="@array/cacheArray"
+            android:entryValues="@array/cacheValues" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

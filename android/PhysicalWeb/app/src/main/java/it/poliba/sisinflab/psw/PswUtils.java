@@ -13,18 +13,22 @@ import org.physical_web.collection.PhysicalWebCollection;
 import org.physical_web.collection.PwPair;
 import org.physical_web.collection.PwsResult;
 import org.physical_web.collection.UrlDevice;
-import org.physical_web.physicalweb.NearbyBeaconsFragment;
+import org.physical_web.physicalweb.Log;
 import org.physical_web.physicalweb.R;
 import org.physical_web.physicalweb.Utils;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import it.poliba.sisinflab.psw.owl.KBManager;
+import it.poliba.sisinflab.www18.DemoWineActivity;
 
 public class PswUtils extends Utils {
 
@@ -61,8 +65,9 @@ public class PswUtils extends Utils {
     }
 
     public static PwsResult getPSWResult(File file, PwsResult pwsResult) {
-        if (NearbyBeaconsFragment.getKBManager() != null)
-            return NearbyBeaconsFragment.getKBManager().getPSWResult(file, pwsResult);
+        KBManager mng = DemoWineActivity.getKBManager();
+        if (mng != null)
+            return mng.getPSWResult(file, pwsResult);
         else
             return pwsResult;
     }
@@ -102,6 +107,22 @@ public class PswUtils extends Utils {
     public static String getRemoteDeviceMac(UrlDevice urlDevice) {
         try {
             return urlDevice.getExtraString(PswDevice.PSW_UID_MAC_KEY);
+        } catch (JSONException e) {
+            return null;
+        }
+    }
+
+    public static String getRemoteDeviceMacHex(UrlDevice urlDevice) {
+        try {
+            String mac = urlDevice.getExtraString(PswDevice.PSW_UID_MAC_KEY);
+            String hex = "";
+            for(int i=0; i<mac.length(); i++) {
+                if (i % 2 == 0 && i>0)
+                    hex = hex + ":" + mac.substring(i, i+1);
+                else
+                    hex = hex + mac.substring(i, i+1);
+            }
+            return hex.toUpperCase();
         } catch (JSONException e) {
             return null;
         }
@@ -148,10 +169,20 @@ public class PswUtils extends Utils {
         String resource = PswUtils.getResourceIRI(pwsResult);
         double geo_distance = PswUtils.getRssiDistance(urlDevice);
         double sem_rank = 1;
-        if (resource != null && NearbyBeaconsFragment.getKBManager() != null) {
-            sem_rank = NearbyBeaconsFragment.getKBManager().getRank(resource);
+        if (resource != null && DemoWineActivity.getKBManager() != null) {
+            sem_rank = DemoWineActivity.getKBManager().getRank(resource);
         }
         double distance = alfa * geo_distance + beta * sem_rank;
+
+        // User's Preferences
+        if (DemoWineActivity.getDatabase().isVisited(pwsResult.getRequestUrl()))
+            distance = distance * 0.95;
+
+        if (DemoWineActivity.getDatabase().isFavourite(pwsResult.getRequestUrl()))
+            distance = distance * 0.9;
+        else if (DemoWineActivity.getDatabase().isSpam(pwsResult.getRequestUrl()))
+            distance = distance * 1.1;
+
         return distance;
     }
 
@@ -212,7 +243,7 @@ public class PswUtils extends Utils {
             String lSite = lhs.getPwsResult().getSiteUrl();
             String rSite = rhs.getPwsResult().getSiteUrl();
 
-            if (mFavorites.contains(lSite) == mFavorites.contains(rSite)) {
+            /*if (mFavorites.contains(lSite) == mFavorites.contains(rSite)) {
                 return Double.compare(getDistance(lhs.getPwsResult(), lhs.getUrlDevice()),
                     getDistance(rhs.getPwsResult(), rhs.getUrlDevice()));
             } else {
@@ -220,7 +251,10 @@ public class PswUtils extends Utils {
                     return -1;
                 }
                 return 1;
-            }
+            }*/
+
+            return Double.compare(getDistance(lhs.getPwsResult(), lhs.getUrlDevice()),
+                    getDistance(rhs.getPwsResult(), rhs.getUrlDevice()));
         }
     }
 
@@ -228,5 +262,21 @@ public class PswUtils extends Utils {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(getBeaconUrl(pwsResult)));
         return intent;
+    }
+
+    public static boolean isObsolete(File file, Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        long cacheTime = Integer.parseInt(preferences.getString(context.getString(R.string.psw_cache_key), "30"))*1000;
+        long diff = System.currentTimeMillis() - file.lastModified();
+        if (diff > cacheTime) {
+            // delete current files
+            file.delete();
+            if(file.exists())
+                context.deleteFile(file.getName());
+
+            return true;
+        } else {
+            return false;
+        }
     }
 }

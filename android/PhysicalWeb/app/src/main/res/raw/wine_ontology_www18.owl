@@ -1,0 +1,3717 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://sisinflab.poliba.it/ontologies/psw-wine#"
+     xml:base="http://sisinflab.poliba.it/ontologies/psw-wine"
+     xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:psw="http://sisinflab.poliba.it/ontologies/psw-wine#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:og="http://ogp.me/ns#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ogp.me/ns#description -->
+
+    <owl:AnnotationProperty rdf:about="http://ogp.me/ns#description"/>
+    
+
+
+    <!-- http://ogp.me/ns#image -->
+
+    <owl:AnnotationProperty rdf:about="http://ogp.me/ns#image"/>
+    
+
+
+    <!-- http://ogp.me/ns#title -->
+
+    <owl:AnnotationProperty rdf:about="http://ogp.me/ns#title"/>
+    
+
+
+    <!-- http://ogp.me/ns#type -->
+
+    <owl:AnnotationProperty rdf:about="http://ogp.me/ns#type"/>
+    
+
+
+    <!-- http://ogp.me/ns#url -->
+
+    <owl:AnnotationProperty rdf:about="http://ogp.me/ns#url"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#minCardinality -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#minCardinality"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasAcceleration -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasAcceleration"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasArea -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasArea"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasHumidity -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasHumidity"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasLight -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasLight"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasLocation"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementAccelerometerCapability -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementAccelerometerCapability"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementAnemometerCapability -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementAnemometerCapability"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementBarometerCapability -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementBarometerCapability"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementGasCapability -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementGasCapability"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementHumidityCapability -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementHumidityCapability"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementLightCapability -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementLightCapability"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementTemperatureCapability -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementTemperatureCapability"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementVisibilityCapability -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementVisibilityCapability"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasObjectDensity -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasObjectDensity"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingProperty -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingProperty"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasPollution -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasPollution"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasPosition -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasPosition"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasSecure_Device -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasSecure_Device"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasStability -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasStability"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasSurvivalProperty -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasSurvivalProperty"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasTemperature -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasTemperature"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasToxicity -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasToxicity"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#hasWineDescriptor -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#hasWineDescriptor"/>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#observes -->
+
+    <owl:ObjectProperty rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#observes"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Acceleration -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Acceleration">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#FeatureOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#AccelerationMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#AccelerationMeasurementCapability">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Accelerometer -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Accelerometer">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SensingDevice"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#observes"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Acceleration"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#observes"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Accuracy -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Accuracy">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ActuatorDevice -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ActuatorDevice">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#AllAltitudeTemperatureMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#AllAltitudeTemperatureMeasurementCapability">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighResolution"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowAccuracy"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleFrequency"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#CompleteAltitudeRange"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#TemperatureMeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#AllAltitudeTemperatureSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#AllAltitudeTemperatureSensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#TemperatureSensor"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementTemperatureCapability"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#AllAltitudeTemperatureMeasurementCapability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Panasonic_VRLA_LC"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementTemperatureCapability"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Altitude -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Altitude">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#OperatingProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#AnemometerMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#AnemometerMeasurementCapability">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#AnemometerSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#AnemometerSensor">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#SensingDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Area -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Area">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#EnvironmentalFeatures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#BMP085BarometerMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#BMP085BarometerMeasurementCapability">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowAccuracy"/>
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowMeasurementRange"/>
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleDetectionLimit"/>
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddlePrecision"/>
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleResolution"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#BarometerMeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#BMP085BarometerSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#BMP085BarometerSensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#BarometerSensor"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementBarometerCapability"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#BMP085BarometerMeasurementCapability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Panasonic_VRLA_LC"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementBarometerCapability"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Bardolino -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Bardolino">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#RoseWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#BarometerMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#BarometerMeasurementCapability">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#BarometerSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#BarometerSensor">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#SensingDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Battery -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Battery">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#EnergyDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#BatteryLifetime -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#BatteryLifetime">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#SurvivalProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Beaujolais -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Beaujolais">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#RedWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#BitLineBLVAnemometerMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#BitLineBLVAnemometerMeasurementCapability">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowPrecision"/>
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowResolution"/>
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleAccuracy"/>
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleMeasurementRange"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#AnemometerMeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#BitLineBLVAnemometerSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#BitLineBLVAnemometerSensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#AnemometerSensor"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementAnemometerCapability"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#BitLineBLVAnemometerMeasurementCapability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Philips_FR_6LB"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementAnemometerCapability"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#BlancDeBlancs -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#BlancDeBlancs">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#SparklingWine_Champagne"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#BlancDeNoirs -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#BlancDeNoirs">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#SparklingWine_Champagne"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Board -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Board">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#EnergyDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Brachetto -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Brachetto">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#RoseWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#CabernetSauvignon -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#CabernetSauvignon">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#RedWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#CentralPosition -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#CentralPosition">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Position"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ChampagneArdenne -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ChampagneArdenne">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#SparklingWine_Champagne"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ChampagneAubry -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ChampagneAubry">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#SparklingWine_Champagne"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Chardonnay -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Chardonnay">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WhiteWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#CheninBlanc -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#CheninBlanc">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WhiteWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Chianti -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Chianti">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#RedWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Chiaretto -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Chiaretto">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#RoseWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#CiroRosato -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#CiroRosato">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#RoseWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#CompleteAltitudeRange -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#CompleteAltitudeRange">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingProperty"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighAltitude"/>
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowAltitude"/>
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleAltitude"/>
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SeaAltitude"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingProperty"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#OperatingRange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Condition -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Condition">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ConstantSensitivity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ConstantSensitivity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Sensitivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Cremant -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Cremant">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#SparklingWine_Champagne"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#D7EAccelerationMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#D7EAccelerationMeasurementCapability">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighResolution"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowMeasurementRange"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleAccuracy"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#CompleteAltitudeRange"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#AccelerationMeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#D7EAccelerometer -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#D7EAccelerometer">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Accelerometer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementAccelerometerCapability"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#D7EAccelerationMeasurementCapability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementAccelerometerCapability"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#DelicateFlavor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#DelicateFlavor">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineFlavor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#DetectionLimit -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#DetectionLimit">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Device -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Device">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Door -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Door">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Escape"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Drift -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Drift">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Dry -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Dry">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineSugar"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#EnergyDevice -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#EnergyDevice">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Device"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSurvivalProperty"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#SurvivalProperty"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#EnixEnergies_RS_689 -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#EnixEnergies_RS_689">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#LowLifetimeBattery"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Entity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Entity">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Environment -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Environment">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#EnvironmentalFeatures -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#EnvironmentalFeatures">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#FeatureOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Escape -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Escape">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#EnvironmentalFeatures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ExtraHighHumidity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ExtraHighHumidity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Humidity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ExtraLowHumidity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ExtraLowHumidity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Humidity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ExtraModerateTemperature -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ExtraModerateTemperature">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Temperature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#FS11VisibilityMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#FS11VisibilityMeasurementCapability">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowAccuracy"/>
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowFrequency"/>
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowResolution"/>
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowSelectivity"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VisibilityMeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#FS11VisibilityMeterSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#FS11VisibilityMeterSensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#VisibilityMeterSensor"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementVisibilityCapability"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#FS11VisibilityMeasurementCapability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Philips_FR_6LB"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementVisibilityCapability"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#FeatureOfInterest -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#FeatureOfInterest">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#FireDoor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#FireDoor">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#FireExtension -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#FireExtension">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#FeatureOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#FireSpeed -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#FireSpeed">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#FeatureOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#FireSuppression -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#FireSuppression">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ActuatorDevice"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasTemperature"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#HighTemperature"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasTemperature"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Frequency -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Frequency">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#FullBody -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#FullBody">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineBody"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#GasMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#GasMeasurementCapability">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#GasSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#GasSensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SensingDevice"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#observes"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Toxicity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#observes"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#GrowingExtension -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#GrowingExtension">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#FireExtension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighAccuracy -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighAccuracy">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Accuracy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighAltitude -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighAltitude">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Altitude"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighBatteryLifetime -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighBatteryLifetime">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#BatteryLifetime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighDetectionLimit -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighDetectionLimit">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#DetectionLimit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighFrequency -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighFrequency">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Frequency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighHumidity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighHumidity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#LowModerateHighHumidity"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ModerateHumidity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighLatency -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighLatency">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Latency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighLifetimeBattery -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighLifetimeBattery">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Battery"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSurvivalProperty"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#HighBatteryLifetime"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighLight -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighLight">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Light"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#LowLight"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighMeasurementRange -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighMeasurementRange">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementRange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighPrecision -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighPrecision">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Precision"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighResolution -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighResolution">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Resolution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighResponseTime -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighResponseTime">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ResponseTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighSelectivity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighSelectivity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Selectivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighSpeed -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighSpeed">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#FireSpeed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighTanninLevel -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighTanninLevel">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineTanninLevel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighTemperature -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighTemperature">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ExtraModerateTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#LimitedTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#LowTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MediumTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ModerateTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#UltraHighTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#UltraLowTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryHighTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryLowTemperature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HighToxicity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighToxicity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Toxicity"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#LowToxicity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Hts2030HumiditySensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Hts2030HumiditySensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HumiditySensor"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#EnixEnergies_RS_689"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementHumidityCapability"/>
+                <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Hts2030MeasurementCapability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementHumidityCapability"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Hts2030MeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Hts2030MeasurementCapability">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighFrequency"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleAccuracy"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleResolution"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleResponseTime"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#HumidityMeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Humidity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Humidity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#FeatureOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HumidityMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HumidityMeasurementCapability">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HumiditySensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HumiditySensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SensingDevice"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#observes"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Humidity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#observes"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HyteModHumiditySensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HyteModHumiditySensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HumiditySensor"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementHumidityCapability"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#HyteModMeasurementCapability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#EnixEnergies_RS_689"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementHumidityCapability"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#HyteModMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HyteModMeasurementCapability">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighAccuracy"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighPrecision"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighResolution"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleFrequency"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#HumidityMeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#InUsageLectureHall -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#InUsageLectureHall">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#LectureHall"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#IndoorEnvironment -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#IndoorEnvironment">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LM70TemperatureMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LM70TemperatureMeasurementCapability">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighMeasurementRange"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowAccuracy"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowResolution"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleFrequency"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#LowAltitudeRange"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#TemperatureMeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LM70TemperatureSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LM70TemperatureSensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#TemperatureSensor"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementTemperatureCapability"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#LM70TemperatureMeasurementCapability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Panasonic_VRLA_LC"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementTemperatureCapability"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Lagrein -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Lagrein">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#RoseWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LargeArea -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LargeArea">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Latency -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Latency">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LateralPosition -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LateralPosition">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Position"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LectureHall -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LectureHall">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#IndoorEnvironment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Light -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Light">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#FeatureOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LightBody -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LightBody">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineBody"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LightMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LightMeasurementCapability">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LightSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LightSensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SensingDevice"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#observes"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Light"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#observes"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LimitedExtension -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LimitedExtension">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#FireExtension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LimitedTemperature -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LimitedTemperature">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Temperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#LowTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MediumTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ModerateTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#UltraHighTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#UltraLowTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryHighTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryLowTemperature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LongTermDrift -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LongTermDrift">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Drift"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowAcceleration -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowAcceleration">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Acceleration"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ModerateAcceleration"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowAccuracy -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowAccuracy">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Accuracy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowAltitude -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowAltitude">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Altitude"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowAltitudeRange -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowAltitudeRange">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingProperty"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowAltitude"/>
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SeaAltitude"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingProperty"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#OperatingRange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowBatteryLifetime -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowBatteryLifetime">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#BatteryLifetime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowDetectionLimit -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowDetectionLimit">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#DetectionLimit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowFrequency -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowFrequency">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Frequency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowHumidity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowHumidity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#LowModerateHighHumidity"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ModerateHumidity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowLatency -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowLatency">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Latency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowLifetimeBattery -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowLifetimeBattery">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Battery"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSurvivalProperty"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#LowBatteryLifetime"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowLight -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowLight">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Light"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowMeasurementRange -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowMeasurementRange">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementRange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowModerateHighHumidity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowModerateHighHumidity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Humidity"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryHighHumidity"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryLowHumidity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowPollution -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowPollution">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Pollution"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ModeratePollution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowPrecision -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowPrecision">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Precision"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowResolution -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowResolution">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Resolution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowResponseTime -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowResponseTime">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ResponseTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowSelectivity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowSelectivity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Selectivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowSpeed -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowSpeed">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#FireSpeed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowTanninLevel -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowTanninLevel">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineTanninLevel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowTemperature -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowTemperature">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Temperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MediumTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ModerateTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#UltraHighTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#UltraLowTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryHighTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryLowTemperature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#LowToxicity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowToxicity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Toxicity"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ModerateToxicity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#M40GasMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#M40GasMeasurementCapability">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowAccuracy"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowPrecision"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowResolution"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleFrequency"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#GasMeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#M40GasSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#M40GasSensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#GasSensor"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementGasCapability"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#M40GasMeasurementCapability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Panasonic_VRLA_LC"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementGasCapability"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MX6GasMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MX6GasMeasurementCapability">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighFrequency"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighResolution"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleAccuracy"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddlePrecision"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#CompleteAltitudeRange"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#GasMeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MX6GasSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MX6GasSensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#GasSensor"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementGasCapability"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MX6GasMeasurementCapability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Panasonic_VRLA_LC"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementGasCapability"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MaintenanceSchedule -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MaintenanceSchedule">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#OperatingProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementCapability">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementProperty -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementProperty">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementRange -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementRange">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MediumArea -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MediumArea">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MediumBody -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MediumBody">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineBody"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MediumLowAltitudeRange -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MediumLowAltitudeRange">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingProperty"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowAltitude"/>
+                            <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleAltitude"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingProperty"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#OperatingRange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MediumTanninLevel -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MediumTanninLevel">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineTanninLevel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MediumTemperature -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MediumTemperature">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ExtraModerateTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ModerateTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#UltraHighTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#UltraLowTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryHighTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryLowTemperature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Merlot -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Merlot">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#RedWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MiddleAccuracy -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleAccuracy">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Accuracy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MiddleAltitude -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleAltitude">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Altitude"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MiddleBatteryLifetime -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleBatteryLifetime">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#BatteryLifetime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MiddleDetectionLimit -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleDetectionLimit">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#DetectionLimit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MiddleFrequency -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleFrequency">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Frequency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MiddleLatency -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleLatency">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Latency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MiddleLifetimeBattery -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleLifetimeBattery">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Battery"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSurvivalProperty"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleBatteryLifetime"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MiddleMeasurementRange -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleMeasurementRange">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementRange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MiddlePrecision -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddlePrecision">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Precision"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MiddleResolution -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleResolution">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Resolution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MiddleResponseTime -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleResponseTime">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ResponseTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#MiddleSelectivity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleSelectivity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Selectivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ModerateAcceleration -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ModerateAcceleration">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Acceleration"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ModerateFlavor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ModerateFlavor">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineFlavor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ModerateHumidity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ModerateHumidity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#LowModerateHighHumidity"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryHighHumidity"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryLowHumidity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ModeratePollution -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ModeratePollution">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Pollution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ModerateTemperature -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ModerateTemperature">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Temperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#UltraHighTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#UltraLowTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryHighTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryLowTemperature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ModerateToxicity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ModerateToxicity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Toxicity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Moscato -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Moscato">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WhiteWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#NearExit -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#NearExit">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Position"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Nebbiolo -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Nebbiolo">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#RoseWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#NonConstantSensitivity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#NonConstantSensitivity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Sensitivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Object -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Object">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ObjectDensity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ObjectDensity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#EnvironmentalFeatures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ObjectDensityHigh -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ObjectDensityHigh">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ObjectDensity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ObjectDensityLow -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ObjectDensityLow">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ObjectDensity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ObjectDensityMedium -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ObjectDensityMedium">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ObjectDensity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Office -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Office">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#IndoorEnvironment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Old -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Old">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineAging"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#OperatingPowerRange -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#OperatingPowerRange">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#OperatingProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#OperatingProperty -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#OperatingProperty">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#OperatingRange -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#OperatingRange">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#OutdoorEnvironment -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#OutdoorEnvironment">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Panasonic_VRLA_LC -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Panasonic_VRLA_LC">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#HighLifetimeBattery"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#PanicBarDoor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#PanicBarDoor">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#PeopleDensity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#PeopleDensity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#EnvironmentalFeatures"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#PeopleDensityHigh -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#PeopleDensityHigh">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#PeopleDensity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#PeopleDensityLow -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#PeopleDensityLow">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#PeopleDensity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Philips_FR_6LB -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Philips_FR_6LB">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleLifetimeBattery"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#PhysicalObject -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#PhysicalObject">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#PinotGris -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#PinotGris">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WhiteWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#PinotNoir -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#PinotNoir">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#RedWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Pollution -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Pollution">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#FeatureOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Position -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Position">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Precision -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Precision">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Property -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Property">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Quality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Quality -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Quality">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#RedBordeaux -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#RedBordeaux">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#RedWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#RedBurgundy -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#RedBurgundy">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#RedWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#RedColor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#RedColor">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineColor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#RedOpAlterationPrevention -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#RedOpAlterationPrevention">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WineEventPrevention"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasAcceleration"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ModerateAcceleration"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasHumidity"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryHighHumidity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingProperty"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#HighAltitude"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasPollution"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ModeratePollution"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasTemperature"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#UltraHighTemperature"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasToxicity"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ModerateToxicity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasAcceleration"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasHumidity"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingProperty"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasPollution"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasTemperature"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasToxicity"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#RedOxidationPrevention -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#RedOxidationPrevention">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WineEventPrevention"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasHumidity"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryLowHumidity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingProperty"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#HighAltitude"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasTemperature"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#UltraHighTemperature"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasHumidity"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingProperty"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasTemperature"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#RedWine -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#RedWine">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Wine"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasWineDescriptor"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#RedColor"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasWineDescriptor"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#RedZinfandel -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#RedZinfandel">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#RedWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Resolution -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Resolution">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ResponseTime -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ResponseTime">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Riesling -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Riesling">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WhiteWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#RoseColor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#RoseColor">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineColor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#RoseWine -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#RoseWine">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Wine"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasWineDescriptor"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#RoseColor"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasWineDescriptor"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Rose -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Rose">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#SparklingWine_Champagne"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#SE95TemperatureMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SE95TemperatureMeasurementCapability">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighAccuracy"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighFrequency"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighMeasurementRange"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighResolution"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:allValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#TemperatureMeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#SE95TemperatureSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SE95TemperatureSensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#TemperatureSensor"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementTemperatureCapability"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#SE95TemperatureMeasurementCapability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Philips_FR_6LB"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementTemperatureCapability"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#SHT11HumidityMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SHT11HumidityMeasurementCapability">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighMeasurementRange"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighResolution"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleAccuracy"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleFrequency"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#CompleteAltitudeRange"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#HumidityMeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#SHT11HumiditySensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SHT11HumiditySensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HumiditySensor"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementHumidityCapability"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#SHT11HumidityMeasurementCapability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Panasonic_VRLA_LC"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementHumidityCapability"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#SHT11TemperatureMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SHT11TemperatureMeasurementCapability">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighAccuracy"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighResolution"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleFrequency"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleMeasurementRange"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#CompleteAltitudeRange"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#TemperatureMeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#SHT11TemperatureSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SHT11TemperatureSensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#TemperatureSensor"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementTemperatureCapability"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#SHT11TemperatureMeasurementCapability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Panasonic_VRLA_LC"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementTemperatureCapability"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#SauvignonBlanc -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SauvignonBlanc">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WhiteWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#SeaAltitude -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SeaAltitude">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Altitude"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Selectivity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Selectivity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#SensingDevice -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SensingDevice">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Sensitivity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Sensitivity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ShortTermDrift -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ShortTermDrift">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Drift"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#SmallArea -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SmallArea">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#SmokeSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SmokeSensor">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#SensingDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#SolarPanel -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SolarPanel">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#EnergyDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#SparklingWine_Champagne -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SparklingWine_Champagne">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Wine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#StrongFlavor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#StrongFlavor">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineFlavor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#SurvivalProperty -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SurvivalProperty">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#SurvivalRange -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SurvivalRange">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Sweet -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Sweet">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineSugar"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#System -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#System">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#PhysicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#SystemLifetime -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SystemLifetime">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#SurvivalProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#TSL25LightMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#TSL25LightMeasurementCapability">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowAccuracy"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowMeasurementRange"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowResolution"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#LightMeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#TSL25LightSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#TSL25LightSensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LightSensor"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementLightCapability"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#TSL25LightMeasurementCapability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#EnixEnergies_RS_689"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementLightCapability"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#TSic306TemperatureMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#TSic306TemperatureMeasurementCapability">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighAccuracy"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowMeasurementRange"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleFrequency"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddlePrecision"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleResolution"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#LowAltitudeRange"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#TemperatureMeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#TSic306TemperatureSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#TSic306TemperatureSensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#TemperatureSensor"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementTemperatureCapability"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#TSic306TemperatureMeasurementCapability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#EnixEnergies_RS_689"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementTemperatureCapability"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Temperature -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Temperature">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#FeatureOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#TemperatureMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#TemperatureMeasurementCapability">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#TemperatureSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#TemperatureSensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#SensingDevice"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#observes"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Temperature"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#observes"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Toxicity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Toxicity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#FeatureOfInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#UltraHighTemperature -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#UltraHighTemperature">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ExtraModerateTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#UltraLowTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryHighTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryLowTemperature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#UltraLowTemperature -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#UltraLowTemperature">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Temperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryHighTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryLowTemperature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#UnusedLectureHall -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#UnusedLectureHall">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#LectureHall"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#VeryHighHumidity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#VeryHighHumidity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Humidity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#VeryHighTemperature -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#VeryHighTemperature">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ExtraModerateTemperature"/>
+        <owl:disjointWith rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryLowTemperature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#VeryLowHumidity -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#VeryLowHumidity">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Humidity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#VeryLowTemperature -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#VeryLowTemperature">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Temperature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#VeryOld -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#VeryOld">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineAging"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#VisibilityMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#VisibilityMeasurementCapability">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#VisibilityMeterSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#VisibilityMeterSensor">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#SensingDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WareHouse -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WareHouse">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#IndoorEnvironment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WhiteBordeaux -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WhiteBordeaux">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WhiteWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WhiteBurgundy -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WhiteBurgundy">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WhiteWine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WhiteColor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WhiteColor">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineColor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WhiteOpAlterationPrevention -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WhiteOpAlterationPrevention">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WineEventPrevention"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasAcceleration"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ModerateAcceleration"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasHumidity"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ExtraHighHumidity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MediumLowAltitudeRange"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasPollution"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ModeratePollution"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasTemperature"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ExtraModerateTemperature"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasToxicity"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ModerateToxicity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasAcceleration"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasHumidity"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasPollution"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasTemperature"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasToxicity"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WhiteOxidationPrevention -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WhiteOxidationPrevention">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WineEventPrevention"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasHumidity"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ExtraLowHumidity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#MediumLowAltitudeRange"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasTemperature"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ExtraModerateTemperature"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasHumidity"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasTemperature"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WhiteWine -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WhiteWine">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Wine"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasWineDescriptor"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WhiteColor"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WiTilt30AccelerationMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WiTilt30AccelerationMeasurementCapability">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#AccelerationMeasurementCapability"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighAccuracy"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighDetectionLimit"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ShortTermDrift"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WiTilt30Accelerometer -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WiTilt30Accelerometer">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Accelerometer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementAccelerometerCapability"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementAccelerometerCapability"/>
+                <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WiTilt30AccelerationMeasurementCapability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WideExtension -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WideExtension">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#FireExtension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Wine -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Wine">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WineAging -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WineAging">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineDescriptor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WineBody -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WineBody">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineTaste"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WineColor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WineColor">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineDescriptor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WineDescriptor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WineDescriptor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WineEventPrevention -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WineEventPrevention">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ActuatorDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WineFlavor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WineFlavor">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineTaste"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WinePrematureAgingPrevention -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WinePrematureAgingPrevention">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WineEventPrevention"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasLight"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#HighLight"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#CompleteAltitudeRange"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasTemperature"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#UltraHighTemperature"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasLight"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasTemperature"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WineSugar -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WineSugar">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineTaste"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WineTanninLevel -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WineTanninLevel">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineTaste"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WineTaste -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WineTaste">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineDescriptor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#WineVpAlterationPrevention -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WineVpAlterationPrevention">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#WineEventPrevention"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasHumidity"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#VeryHighHumidity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#CompleteAltitudeRange"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasPollution"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ModeratePollution"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasHumidity"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasPollution"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#Young -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#Young">
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#WineAging"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ZIG2LightMeasurementCapability -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ZIG2LightMeasurementCapability">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighAccuracy"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#HighMeasurementRange"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LowFrequency"/>
+                                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#MiddleResolution"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#CompleteAltitudeRange"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementProperty"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasOperatingRange"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#LightMeasurementCapability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sisinflab.poliba.it/ontologies/psw-wine#ZIG2LightSensor -->
+
+    <owl:Class rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#ZIG2LightSensor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sisinflab.poliba.it/ontologies/psw-wine#LightSensor"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementLightCapability"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#ZIG2LightMeasurementCapability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:allValuesFrom rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#Philips_FR_6LB"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasMeasurementLightCapability"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sisinflab.poliba.it/ontologies/psw-wine#hasSubSystem"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+

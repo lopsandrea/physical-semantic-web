@@ -25,10 +25,13 @@ import org.physical_web.physicalweb.UrlDeviceDiscoveryService;
 import org.physical_web.physicalweb.Utils;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import it.poliba.sisinflab.psw.ble.BluetoothSPPClient;
 import it.poliba.sisinflab.psw.ble.PswUidBluetoothGattCallback;
 
 public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
@@ -76,12 +79,14 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
     public void onUrlDeviceDiscovered(UrlDevice urlDevice) {
         try {
             if(urlDevice.getExtraString(PswUtils.TYPE_KEY).equals(PswUtils.PSW_URL_DEVICE_TYPE)){
-                this.onPswUrlDeviceDiscovered(urlDevice);
+                //if (PswUtils.isPswEnabled(getBaseContext()))
+                    this.onPswUrlDeviceDiscovered(urlDevice);
             } else if(urlDevice.getExtraString(PswUtils.TYPE_KEY).equals(PswUtils.PSW_UID_DEVICE_TYPE)){
-                this.onPswUidDeviceDiscovered(urlDevice);
+                //if (PswUtils.isPswEnabled(getBaseContext()))
+                    this.onPswUidDeviceDiscovered(urlDevice);
             } else
                 super.onUrlDeviceDiscovered(urlDevice);
-        } catch (JSONException e) {
+        } catch (Exception e) {
             Log.e(TAG, "Beacon Type not found!");
             e.printStackTrace();
         }
@@ -98,9 +103,18 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
 
         String filename = PswUtils.getPswUidFragmentName(urlDevice);
         File owl = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + filename + ".owl");
-        if (!owl.exists()){
-            if (!bleGatt.isRunning())
+        if (!owl.exists() || PswUtils.isObsolete(owl, getBaseContext())){
+            if (!bleGatt.isRunning()) {
                 bleGatt.connect(urlDevice.getUrl(), filename, new PswUidConnectionListener(filename, urlDevice.getUrl()));
+            }
+
+            /*String mac = PswUtils.getRemoteDeviceMacHex(urlDevice);
+            String onto = PswUtils.getOntologyID(urlDevice);
+            String id = PswUtils.getInstanceID(urlDevice);
+            String cmd = onto + ";" + id;
+
+            new BluetoothSPPClient(new PswUidSPPListener()).execute(mac, cmd, filename, urlDevice.getUrl());*/
+
         } else {
             PwsResult pwsResult = mPwCollection.getMetadataByBroadcastUrl(urlDevice.getUrl());
             if (pwsResult != null && PswUtils.getResourceIRI(pwsResult) == null)
@@ -110,6 +124,45 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
         }
 
         updateNotifications();
+    }
+
+    int bt_notification_id = 0;
+    private class PswUidSPPListener implements BluetoothSPPClient.OnTaskCompleted {
+        @Override
+        public void onTaskCompleted(String receivedOWL, String filename, String url) {
+            if(receivedOWL != null && receivedOWL.length()>0) {
+                Log.d(TAG, "PSW-UID file downloaded!");
+
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(getBaseContext())
+                                .setAutoCancel(true)
+                                .setGroup("PSW-UID")
+                                .setSmallIcon(R.drawable.ic_notification)
+                                .setContentTitle("PSW-UID Beacon downloaded!")
+                                .setContentText("Local OWL fragment @" + url);
+                NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                mNotificationManager.notify(TAG, bt_notification_id++, mBuilder.build());
+
+                File owl = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + filename + ".owl");
+                FileOutputStream stream = null;
+                try {
+                    stream = new FileOutputStream(owl);
+                    stream.write(receivedOWL.getBytes());
+                    stream.flush();
+                    stream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                PwsResult pwsResult = mPwCollection.getMetadataByBroadcastUrl(url);
+                if (pwsResult != null && PswUtils.getResourceIRI(pwsResult) != null)
+                    refreshPSWData(owl, pwsResult);
+                else
+                    triggerCallback();
+
+                updateNotifications();
+            }
+        }
     }
 
     private class PswUidConnectionListener implements ConnectionListener {
@@ -128,6 +181,9 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
             NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(getBaseContext())
                     .setSmallIcon(R.drawable.ic_notification)
+                    .setAutoCancel(true)
+                    .setNumber(5)
+                    .setGroup("PSW-UID")
                     .setContentTitle("PSW-UID Beacon")
                     .setContentText("OWL fragment downloaded!");
             NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -157,6 +213,7 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
                     .setTitle(Utils.getTitle(urlDevice))
                     .setDescription(Utils.getDescription(urlDevice))
                     .build();
+                addPSWMetadata(pwsResult);
                 mPwCollection.addMetadata(replacement);
                 triggerCallback();
                 updateNotifications();
@@ -209,7 +266,8 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
     private void addPSWMetadata(PwsResult pwsResult) {
         Uri url = Uri.parse(pwsResult.getRequestUrl());
         File owl = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + url.getLastPathSegment() + ".owl");
-        if (owl.exists()) {
+
+        if (owl.exists() && !PswUtils.isObsolete(owl, getBaseContext())) {
             // load file previously downloaded
             refreshPSWData(owl, pwsResult);
         } else {
@@ -219,7 +277,7 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
             request.setDescription("Downloading Beacon annotation...");
             request.setTitle("PSW-URL Beacon");
             request.allowScanningByMediaScanner();
-            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_HIDDEN);
             request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, url.getLastPathSegment() + ".owl");
 
             final Context c = this.getBaseContext();
@@ -232,9 +290,14 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
                     if (mDownloadedFileID == -1)
                         return;
                     else {
-                        String mostRecentDownload = manager.getUriForDownloadedFile(mDownloadedFileID).getLastPathSegment();
-                        File tmp = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + mostRecentDownload);
-                        refreshPSWData(tmp, pwsResult);
+                        Uri uri = manager.getUriForDownloadedFile(mDownloadedFileID);
+                        if (uri != null) {
+                            String mostRecentDownload = uri.getLastPathSegment();
+                            if (owl.getAbsolutePath().contains(mostRecentDownload)) {
+                                //File tmp = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + mostRecentDownload);
+                                refreshPSWData(owl, pwsResult);
+                            }
+                        }
                     }
 
                     c.unregisterReceiver(this);

@@ -72,7 +72,8 @@ public class SettingsFragment extends PreferenceFragment
   @Override
   public void onPrepareOptionsMenu(Menu menu) {
     super.onPrepareOptionsMenu(menu);
-    Utils.hideAllMenuItems(menu);
+    if (menu.size() > 0)
+      Utils.hideAllMenuItems(menu);
   }
 
   @Override

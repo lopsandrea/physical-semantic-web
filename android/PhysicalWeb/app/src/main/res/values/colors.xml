@@ -9,4 +9,12 @@
     <color name="swipe_refresh_widget_first_color">#70a2d3</color>
     <color name="swipe_refresh_widget_second_color">#c2c2c2</color>
     <color name="physical_web_logo">#4184c5</color>
+
+    <color name="black_overlay">#66000000</color>
+
+    <color name="www18_light">#F0AB00</color>
+    <color name="www18_middle">#FF9800</color>
+    <color name="www18_dark">#E07100</color>
+    <color name="www18_accent">#E65100</color>
+    <color name="www18_wine">#881441</color>
 </resources>

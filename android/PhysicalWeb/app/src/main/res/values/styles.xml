@@ -20,8 +20,7 @@
 
     </style>
 
-    <style name="ActionBar.TitleTextStyle"
-           parent="android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+    <style name="ActionBar.TitleTextStyle" parent="android:style/TextAppearance.Holo.Widget.ActionBar.Title">
         <item name="android:textColor">@color/action_bar_title_text_color</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
@@ -48,4 +47,46 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="FullscreenTheme" parent="CustomAppTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="android:Widget.Holo.ActionBar">
+        <item name="android:background">@color/www18_dark</item>
+        <item name="android:titleTextStyle">@style/ActionBarWWW.TitleTextStyle</item>
+    </style>
+
+    <style name="ActionBarWWW.TitleTextStyle" parent="android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- inherit from the material theme -->
+    <style name="MaterialAppTheme" parent="android:Theme.Material.Light.DarkActionBar">
+        <!-- Main theme colors -->
+        <!--   your app branding color for the app bar -->
+        <item name="android:colorPrimary">@color/www18_middle</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="android:colorPrimaryDark">@color/www18_dark</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="android:colorAccent">@color/www18_accent</item>
+    </style>
+
+    <style name="FAB_www_demo" parent="android:Widget.Material.Button">
+        <item name="android:background">@drawable/fab_back_demo</item>
+        <item name="android:stateListAnimator">@animator/fab_state_list_animator</item>
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">?android:attr/listDivider</item>
+    </style>
+
 </resources>
