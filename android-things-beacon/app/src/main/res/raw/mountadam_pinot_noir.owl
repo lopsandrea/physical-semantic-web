@@ -1,0 +1,118 @@
+Prefix: og: <http://ogp.me/ns#>
+Prefix: wo: <http://sisinflab.poliba.it/ontologies/psw-wine#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+
+Ontology: <http://sisinflab.poliba.it/ontologies/psw-wine#onto-MountadamPinotNoir>
+
+
+AnnotationProperty: og:description
+
+    
+AnnotationProperty: og:title
+
+    
+AnnotationProperty: og:image
+
+    
+AnnotationProperty: og:url
+
+    
+Datatype: xsd:string
+
+    
+Datatype: xsd:anyURI
+
+    
+ObjectProperty: wo:hasHumidity
+
+    
+ObjectProperty: wo:hasPollution
+
+    
+ObjectProperty: wo:hasAcceleration
+
+    
+ObjectProperty: wo:hasToxicity
+
+    
+ObjectProperty: wo:hasTemperature
+
+    
+ObjectProperty: wo:hasWineDescriptor
+
+    
+ObjectProperty: wo:hasLight
+
+    
+Class: wo:VeryHighHumidity
+
+    
+Class: wo:LowPollution
+
+    
+Class: wo:VeryLowTemperature
+
+    
+Class: wo:MediumBody
+
+    
+Class: wo:Old
+
+    
+Class: wo:LowAcceleration
+
+    
+Class: wo:PinotNoir
+
+    
+Class: wo:LowToxicity
+
+    
+Class: wo:MediumTanninLevel
+
+    
+Class: wo:HighLight
+
+    
+Class: wo:ModerateFlavor
+
+    
+Class: wo:Dry
+
+    
+Individual: wo:MountadamPinotNoir
+
+    Annotations: 
+        og:title "Mountadam Pinot Noir"^^xsd:string,
+        og:url "http://www.winemag.com/buying-guide/mountadam-1996-pinot-noir-eden-valley"^^xsd:anyURI,
+        og:image "http://www.wineseek.com.au/images/full/mountadam_bubbly.jpg"^^xsd:anyURI,
+        og:description "Stewed vegetables and sweaty leather make for an unappetizing initial impression. But on the palate there's plenty of weight and richness; if anything it's a trifle heavy and low in acidity."^^xsd:string
+    
+    Types: 
+        wo:PinotNoir
+         and (wo:hasAcceleration only 
+            (wo:LowAcceleration))
+         and (wo:hasHumidity only 
+            (wo:VeryHighHumidity))
+         and (wo:hasLight only 
+            (wo:HighLight))
+         and (wo:hasPollution only 
+            (wo:LowPollution))
+         and (wo:hasTemperature only 
+            (wo:VeryLowTemperature))
+         and (wo:hasToxicity only 
+            (wo:LowToxicity))
+         and (wo:hasWineDescriptor only 
+            (wo:Dry
+             and wo:MediumBody
+             and wo:MediumTanninLevel
+             and wo:ModerateFlavor
+             and wo:Old))
+    
+    
