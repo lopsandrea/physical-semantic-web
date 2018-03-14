@@ -217,7 +217,7 @@ public class DemoTabActivity extends Activity implements ActionBar.TabListener {
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position) {
                 case 0:
-                    return DemoBeaconFragment.newInstance();
+                    return DemoDiscoveryFragment.newInstance();
                 case 1:
                     return DemoFavouriteFragment.newInstance();
                 case 2:

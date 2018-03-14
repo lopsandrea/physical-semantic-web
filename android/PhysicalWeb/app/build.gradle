@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "it.sisinflab.poliba.demo.www18"
-        minSdkVersion 22
+        minSdkVersion 24
         targetSdkVersion 25
         versionCode 18
         versionName "0.1.0"

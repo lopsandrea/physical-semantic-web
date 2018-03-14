@@ -11,7 +11,6 @@ import android.os.Binder;
 import android.os.Environment;
 import android.support.v4.app.NotificationCompat;
 
-import org.json.JSONException;
 import org.physical_web.collection.PwPair;
 import org.physical_web.collection.PwsResult;
 import org.physical_web.collection.PwsResultCallback;
@@ -25,8 +24,6 @@ import org.physical_web.physicalweb.UrlDeviceDiscoveryService;
 import org.physical_web.physicalweb.Utils;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -77,53 +74,54 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
 
     @Override
     public void onUrlDeviceDiscovered(UrlDevice urlDevice) {
-        try {
-            if(urlDevice.getExtraString(PswUtils.TYPE_KEY).equals(PswUtils.PSW_URL_DEVICE_TYPE)){
-                //if (PswUtils.isPswEnabled(getBaseContext()))
+            try {
+                if (urlDevice.getExtraString(PswUtils.TYPE_KEY).equals(PswUtils.PSW_URL_DEVICE_TYPE)) {
+                    //if (PswUtils.isPswEnabled(getBaseContext()))
                     this.onPswUrlDeviceDiscovered(urlDevice);
-            } else if(urlDevice.getExtraString(PswUtils.TYPE_KEY).equals(PswUtils.PSW_UID_DEVICE_TYPE)){
-                //if (PswUtils.isPswEnabled(getBaseContext()))
+                } else if (urlDevice.getExtraString(PswUtils.TYPE_KEY).equals(PswUtils.PSW_UID_DEVICE_TYPE)) {
+                    //if (PswUtils.isPswEnabled(getBaseContext()))
                     this.onPswUidDeviceDiscovered(urlDevice);
-            } else
-                super.onUrlDeviceDiscovered(urlDevice);
-        } catch (Exception e) {
-            Log.e(TAG, "Beacon Type not found!");
-            e.printStackTrace();
-        }
+                } else
+                    super.onUrlDeviceDiscovered(urlDevice);
+            } catch (Exception e) {
+                Log.e(TAG, "Beacon Type not found!");
+                e.printStackTrace();
+            }
     }
 
     private void onPswUidDeviceDiscovered(UrlDevice urlDevice) {
         Log.d(TAG, urlDevice.getUrl() + " [PSW-UID]");
         mPwCollection.addUrlDevice(urlDevice);
         mPwCollection.addMetadata(new PwsResult.Builder(urlDevice.getUrl(), urlDevice.getUrl())
-            .setTitle(Utils.getTitle(urlDevice))
-            .setDescription(Utils.getDescription(urlDevice))
-            .build());
+                .setTitle(Utils.getTitle(urlDevice))
+                .setDescription(Utils.getDescription(urlDevice))
+                .build());
         triggerCallback();
 
         String filename = PswUtils.getPswUidFragmentName(urlDevice);
         File owl = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + filename + ".owl");
-        if (!owl.exists() || PswUtils.isObsolete(owl, getBaseContext())){
+        if (!owl.exists() || PswUtils.isObsolete(owl, getBaseContext())) {
             if (!bleGatt.isRunning()) {
                 bleGatt.connect(urlDevice.getUrl(), filename, new PswUidConnectionListener(filename, urlDevice.getUrl()));
             }
 
-            /*String mac = PswUtils.getRemoteDeviceMacHex(urlDevice);
-            String onto = PswUtils.getOntologyID(urlDevice);
-            String id = PswUtils.getInstanceID(urlDevice);
-            String cmd = onto + ";" + id;
+        /*String mac = PswUtils.getRemoteDeviceMacHex(urlDevice);
+        String onto = PswUtils.getOntologyID(urlDevice);
+        String id = PswUtils.getInstanceID(urlDevice);
+        String cmd = onto + ";" + id;
 
-            new BluetoothSPPClient(new PswUidSPPListener()).execute(mac, cmd, filename, urlDevice.getUrl());*/
+        new BluetoothSPPClient(new PswUidSPPListener()).execute(mac, cmd, filename, urlDevice.getUrl());*/
 
         } else {
             PwsResult pwsResult = mPwCollection.getMetadataByBroadcastUrl(urlDevice.getUrl());
-            if (pwsResult != null && PswUtils.getResourceIRI(pwsResult) == null)
+            if (pwsResult != null && PswUtils.getResourceIRI(pwsResult) == null) {
                 refreshPSWData(owl, pwsResult);
-            else
+                //updateNotifications();
+            } else
                 triggerCallback();
         }
 
-        updateNotifications();
+
     }
 
     int bt_notification_id = 0;
@@ -144,7 +142,7 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
                 mNotificationManager.notify(TAG, bt_notification_id++, mBuilder.build());
 
                 File owl = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + filename + ".owl");
-                FileOutputStream stream = null;
+                /*FileOutputStream stream = null;
                 try {
                     stream = new FileOutputStream(owl);
                     stream.write(receivedOWL.getBytes());
@@ -152,15 +150,14 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
                     stream.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                }
+                }*/
 
                 PwsResult pwsResult = mPwCollection.getMetadataByBroadcastUrl(url);
-                if (pwsResult != null && PswUtils.getResourceIRI(pwsResult) != null)
+                if (pwsResult != null && PswUtils.getResourceIRI(pwsResult) != null) {
                     refreshPSWData(owl, pwsResult);
-                else
+                    //updateNotifications();
+                } else
                     triggerCallback();
-
-                updateNotifications();
             }
         }
     }
@@ -191,12 +188,12 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
 
             File owl = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + mFile + ".owl");
             PwsResult pwsResult = mPwCollection.getMetadataByBroadcastUrl(mUrl);
-            if (pwsResult != null && PswUtils.getResourceIRI(pwsResult) != null)
+            if (pwsResult != null && PswUtils.getResourceIRI(pwsResult) == null) {
                 refreshPSWData(owl, pwsResult);
-            else
+                //updateNotifications();
+            } else
                 triggerCallback();
 
-            updateNotifications();
         }
     }
 

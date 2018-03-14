@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -28,6 +29,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -41,15 +43,33 @@ import it.poliba.sisinflab.www18.database.BeaconDatabase;
 
 public class BeaconAdapter extends RecyclerView.Adapter<BeaconAdapter.BeaconViewHolder>{
 
-    class BeaconItem {
+    class BeaconItem implements Comparable<BeaconItem> {
         long timestamp;
         PwPair pwPair;
+        Context context;
 
-        public BeaconItem(long ts, PwPair pwPair) {
+        public BeaconItem(long ts, PwPair pwPair, Context ctx) {
             timestamp = ts;
             this.pwPair = pwPair;
+            this.context = ctx;
+        }
+
+        @Override
+        public int compareTo(@NonNull BeaconItem comparedItem) {
+            //descending order
+            double comparedRank = PswUtils.getRank(comparedItem.pwPair.getPwsResult(), comparedItem.pwPair.getUrlDevice(), context);
+            double currentRank = PswUtils.getRank(this.pwPair.getPwsResult(), this.pwPair.getUrlDevice(), context);
+
+            return Math.round((float)(comparedRank - currentRank)*100);
         }
     }
+
+    private Comparator<BeaconItem> beaconItemComparator = new Comparator<BeaconItem>() {
+        public int compare(BeaconItem item1, BeaconItem item2) {
+            //descending order
+            return item2.compareTo(item1);
+        }
+    };
 
     Context mContext;
     List<BeaconItem> items;
@@ -238,13 +258,14 @@ public class BeaconAdapter extends RecyclerView.Adapter<BeaconAdapter.BeaconView
             items.clear();
     }
 
-    public void setItems(List<PwPair> pwPairs) {
+    public void setItems(List<PwPair> pwPairs, Context c) {
         //items = pwPairs;
         for(PwPair pw : pwPairs) {
             if(!isShown(pw.getPwsResult().getRequestUrl()))
-                items.add(new BeaconItem(System.currentTimeMillis(), pw));
+                items.add(new BeaconItem(System.currentTimeMillis(), pw, c));
         }
 
+        items.sort(beaconItemComparator);
     }
 
     private boolean isShown(String url) {
@@ -259,7 +280,7 @@ public class BeaconAdapter extends RecyclerView.Adapter<BeaconAdapter.BeaconView
         for (int i = 0; i < items.size(); ++i) {
             long diff = System.currentTimeMillis() - items.get(i).timestamp;
             if(items.get(i).pwPair.getPwsResult().getRequestUrl().equalsIgnoreCase(pwPair.getPwsResult().getRequestUrl())
-                    && diff > 60000) {
+                    && diff > 30000) {
                 items.get(i).timestamp = System.currentTimeMillis();
                 items.get(i).pwPair = pwPair;
                 return;
@@ -279,12 +300,14 @@ public class BeaconAdapter extends RecyclerView.Adapter<BeaconAdapter.BeaconView
         return false;
     }*/
 
-    public void addItem(PwPair pwPair) {
+    public void addItem(PwPair pwPair, Context c) {
         if (pwPair != null) {
             if(isShown(pwPair.getPwsResult().getRequestUrl()))
                 updateItem(pwPair);
             else
-                items.add(new BeaconItem(System.currentTimeMillis(), pwPair));
+                items.add(new BeaconItem(System.currentTimeMillis(), pwPair, c));
+
+            items.sort(beaconItemComparator);
         }
     }
 

@@ -451,8 +451,8 @@ public class UrlDeviceDiscoveryService extends Service
         .setGroup(NOTIFICATION_GROUP_KEY)
         .setGroupSummary(true)
         .setPriority(Utils.containsFavorite(pwPairs)
-            ? NotificationCompat.PRIORITY_DEFAULT : NotificationCompat.PRIORITY_MIN)
-        .setContentIntent(createReturnToAppPendingIntent());
+            ? NotificationCompat.PRIORITY_DEFAULT : NotificationCompat.PRIORITY_MIN);
+        //.setContentIntent(createReturnToAppPendingIntent());
     if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
       builder.setVisibility(NOTIFICATION_VISIBILITY);
     }
@@ -477,8 +477,8 @@ public class UrlDeviceDiscoveryService extends Service
 
     // Create a pending intent that will open the physical web app
     // TODO(cco3): Use a clickListener on the VIEW MORE button to do this
-    PendingIntent pendingIntent = createReturnToAppPendingIntent();
-    remoteViews.setOnClickPendingIntent(R.id.otherBeaconsLayout, pendingIntent);
+    //PendingIntent pendingIntent = createReturnToAppPendingIntent();
+    //remoteViews.setOnClickPendingIntent(R.id.otherBeaconsLayout, pendingIntent);
 
     return remoteViews;
   }
@@ -501,8 +501,9 @@ public class UrlDeviceDiscoveryService extends Service
 
     // Create an intent that will open the browser to the beacon's url
     // if the user taps the notification
-    remoteViews.setOnClickPendingIntent(R.id.first_beacon_main_layout,
-        Utils.createNavigateToUrlPendingIntent(pwsResult, this));
+    /*remoteViews.setOnClickPendingIntent(R.id.first_beacon_main_layout,
+        Utils.createNavigateToUrlPendingIntent(pwsResult, this));*/
+
     remoteViews.setViewVisibility(R.id.firstBeaconLayout, View.VISIBLE);
   }
 
@@ -524,17 +525,18 @@ public class UrlDeviceDiscoveryService extends Service
 
     // Create an intent that will open the browser to the beacon's url
     // if the user taps the notification
-    remoteViews.setOnClickPendingIntent(R.id.second_beacon_main_layout,
-        Utils.createNavigateToUrlPendingIntent(pwsResult, this));
+    /*remoteViews.setOnClickPendingIntent(R.id.second_beacon_main_layout,
+        Utils.createNavigateToUrlPendingIntent(pwsResult, this));*/
+
     remoteViews.setViewVisibility(R.id.secondBeaconLayout, View.VISIBLE);
   }
 
-  private PendingIntent createReturnToAppPendingIntent() {
+  /*private PendingIntent createReturnToAppPendingIntent() {
     Intent intent = new Intent(this, MainActivity.class);
     int requestID = (int) System.currentTimeMillis();
     PendingIntent pendingIntent = PendingIntent.getActivity(this, requestID, intent, 0);
     return pendingIntent;
-  }
+  }*/
 
   public void addCallback(UrlDeviceDiscoveryListener urlDeviceDiscoveryListener) {
     mUrlDeviceDiscoveryListeners.add(urlDeviceDiscoveryListener);
