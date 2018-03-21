@@ -196,8 +196,10 @@ public class PswUidBroadcastService extends Service {
                 data = null;
                 Log.e(TAG, "Error reading file");
             }
-        } else
+        } else {
+            Log.i(TAG, new String(data));
             return;
+        }
 
         PreferenceManager.getDefaultSharedPreferences(this).edit()
             .putString(PREVIOUS_BROADCAST_PSW_INFO_KEY, mDisplayInfo)

@@ -76,7 +76,7 @@ public class BeaconingActivity extends Activity {
                         mng.setPropertyValue(KBManager.TEMPERATURE_PROPERTY, KBManager.TEMPERATURE_VALUES[tmpLevel]);
                         updateDisplayLevel(mLedGpioB, "TEMP", tmpLevel);
 
-                        Log.i(TAG, mng.getOWL());
+                        //Log.i(TAG, mng.getOWL());
                         restartBeaconing();
                     }
                 }
@@ -92,7 +92,7 @@ public class BeaconingActivity extends Activity {
                         mng.setPropertyValue(KBManager.HUMIDITY_PROPERTY, KBManager.HUMIDITY_VALUES[hmdLevel]);
                         updateDisplayLevel(mLedGpioB, "HUM", hmdLevel);
 
-                        Log.i(TAG, mng.getOWL());
+                        //Log.i(TAG, mng.getOWL());
                         restartBeaconing();
                     }
                 }
@@ -108,7 +108,7 @@ public class BeaconingActivity extends Activity {
                         mng.setPropertyValue(KBManager.LIGHT_PROPERTY, KBManager.LIGHT_VALUES[lumLevel]);
                         updateDisplayLevel(mLedGpioB, "LUM", lumLevel);
 
-                        Log.i(TAG, mng.getOWL());
+                        //Log.i(TAG, mng.getOWL());
                         restartBeaconing();
                     }
                 }
