@@ -13,24 +13,35 @@ have a bluetooth chip installed.
 
 2. Make sure you have nodejs
 
-   ```$ node -v```
+```
+$ node -v
+```
 
 If not, then run
 
-    ```$ sudo apt install nodejs```
+```
+$ sudo apt install nodejs
+```
 
 3. For bleno make sure bluetooth, bluez, libbluetooth-dev, and libudev-dev 
    are installed
 
-   ```$ sudo apt-get install bluetooth bluez libbluetooth-dev libudev-dev```
+```
+$ sudo apt-get install bluetooth bluez libbluetooth-dev libudev-dev
+```
 
 4. Navigate to the repository directory and copy on the same folder the [psw-node-eddystone-beacon](https://github.com/sisinflab-swot/psw-node-eddystone-beacon) library.
 
 5. Run
 
-    ```$ sudo npm install psw-node-eddystone-beacon```
+```
+$ sudo npm install psw-node-eddystone-beacon
+```
 
 This should download all required nodejs libraries.
-5. To run
 
-    ```$ sudo node psw_uid_beacon.js```
+6. To run
+
+```
+$ sudo node psw_uid_beacon.js
+```
