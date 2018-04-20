@@ -263,7 +263,7 @@ public class MainActivity extends Activity {
   }
 
   private void showOWLManager() {
-      String owl = PswUtils.getOWL(getResources().openRawResource(R.raw.cultural_vienna));
+      String owl = PswUtils.getOWL(getResources().openRawResource(R.raw.mountadam_pinot_noir));
       if (owl != null) {
           Intent intent = new Intent(this, OWLEditorActivity.class);
           intent.putExtra(getString(R.string.owl_string_key), owl);

@@ -23,6 +23,8 @@ import org.physical_web.physicalweb.ble.ScanRecord;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
+import android.bluetooth.le.ScanCallback;
+import android.bluetooth.le.ScanResult;
 import android.content.Context;
 import android.os.ParcelUuid;
 import android.os.Parcelable;

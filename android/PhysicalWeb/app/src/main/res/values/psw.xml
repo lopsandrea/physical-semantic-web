@@ -9,7 +9,7 @@
 
     <!-- STRINGS -->
     <string name="action_about_psw">About PSW</string>
-    <string name="action_owl_manager">OWL Manager</string>
+    <string name="action_owl_manager">Edit Request</string>
     <string name="psw_settings_title">Physical Semantic Web Settings</string>
     <string name="psw_title">Enable Physical Semantic Web</string>
     <string name="psw_summary">Enabling Physical Semantic Web allows you to find PSW beacons.</string>
@@ -43,19 +43,19 @@
     </string-array>
 
     <string-array name="scoreArray">
-        <item>Full Distance-based (0)</item>
+        <item>Full Distance-based (5)</item>
         <item>Distance-oriented (25)</item>
         <item>Balanced (50)</item>
         <item>Semantic-oriented (75)</item>
-        <item>Full Semantic-based (100)</item>
+        <item>Full Semantic-based (95)</item>
     </string-array>
 
     <string-array name="scoreValues">
-        <item>0</item>
+        <item>5</item>
         <item>25</item>
         <item>50</item>
         <item>75</item>
-        <item>100</item>
+        <item>95</item>
     </string-array>
 
     <string-array name="cacheArray">

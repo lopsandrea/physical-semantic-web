@@ -31,7 +31,7 @@ public class PswBleDeviceDiscoverer extends BleUrlDeviceDiscoverer {
         byte[] serviceData = scanRecord.getServiceData(EDDYSTONE_URL_SERVICE_UUID);
 
         // check for PSW beacons
-        if (PswUtils.isPswEnabled(mContext)) {
+        //if (PswUtils.isPswEnabled(mContext)) {
             if (PswEddystoneBeacon.isPswUrlFrame(serviceData)) {
                 EddystoneBeacon beacon = EddystoneBeacon.parseFromServiceData(serviceData, null);
                 if (beacon == null || !URLUtil.isNetworkUrl(beacon.getUrl())) {
@@ -68,12 +68,12 @@ public class PswBleDeviceDiscoverer extends BleUrlDeviceDiscoverer {
                 return;
             } else
                 super.onLeScan(device, rssi, scanBytes);
-        } else {
+        /*} else {
             if (PswEddystoneBeacon.isPswUrlFrame(serviceData) || PswEddystoneBeacon.isPswUidFrame(serviceData)) {
                 return;
             } else
                 super.onLeScan(device, rssi, scanBytes);
-        }
+        }*/
     }
 
     private UrlDevice createUidDevice(String id, String mac) {

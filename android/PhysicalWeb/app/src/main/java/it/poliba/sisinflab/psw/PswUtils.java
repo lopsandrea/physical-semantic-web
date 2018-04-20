@@ -64,10 +64,10 @@ public class PswUtils extends Utils {
         return type.equals(PSW_UID_DEVICE_TYPE);
     }
 
-    public static PwsResult getPSWResult(File file, PwsResult pwsResult) {
+    public static PwsResult getPSWResult(File file, PwsResult pwsResult, boolean load) {
         KBManager mng = DemoWineActivity.getKBManager();
         if (mng != null)
-            return mng.getPSWResult(file, pwsResult);
+            return mng.getPSWResult(file, pwsResult, load);
         else
             return pwsResult;
     }
@@ -183,6 +183,9 @@ public class PswUtils extends Utils {
         else if (DemoWineActivity.getDatabase().isSpam(pwsResult.getRequestUrl()))
             distance = distance * 1.1;
 
+        if (distance > 1)
+            distance = 1;
+
         return distance;
     }
 
@@ -266,7 +269,7 @@ public class PswUtils extends Utils {
 
     public static boolean isObsolete(File file, Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        long cacheTime = Integer.parseInt(preferences.getString(context.getString(R.string.psw_cache_key), "30"))*1000;
+        long cacheTime = Integer.parseInt(preferences.getString(context.getString(R.string.psw_cache_key), "60"))*1000;
         long diff = System.currentTimeMillis() - file.lastModified();
         if (diff > cacheTime) {
             // delete current files

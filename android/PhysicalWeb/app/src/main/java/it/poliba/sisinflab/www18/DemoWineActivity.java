@@ -162,6 +162,8 @@ public class DemoWineActivity extends Activity {
         isPermissionGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         isPermissionGranted(Manifest.permission.BLUETOOTH);
         isPermissionGranted(Manifest.permission.BLUETOOTH_ADMIN);
+        isPermissionGranted(Manifest.permission.BLUETOOTH_PRIVILEGED);
+        isPermissionGranted(Manifest.permission.MEDIA_CONTENT_CONTROL);
     }
 
     private boolean isPermissionGranted(String perm) {

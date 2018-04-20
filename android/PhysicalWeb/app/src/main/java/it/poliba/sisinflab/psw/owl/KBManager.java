@@ -3,33 +3,46 @@ package it.poliba.sisinflab.psw.owl;
 import android.content.Context;
 import android.os.Environment;
 
+import org.coode.owlapi.manchesterowlsyntax.ManchesterOWLSyntaxOntologyFormat;
 import org.physical_web.collection.PwsResult;
 import org.physical_web.physicalweb.Log;
 import org.physical_web.physicalweb.R;
 import org.physical_web.physicalweb.Utils;
 import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.AddAxiom;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
 import org.semanticweb.owlapi.model.OWLAnnotationProperty;
+import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
+import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
+import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.InputStream;
+import java.util.HashSet;
 import java.util.Set;
 
 import it.poliba.sisinflab.owl.owlapi.MicroReasoner;
 import it.poliba.sisinflab.owl.owlapi.MicroReasonerFactory;
 import it.poliba.sisinflab.owl.owlapi.ResourceNotFoundException;
 import it.poliba.sisinflab.owl.sod.hlds.Abduction;
+import it.poliba.sisinflab.owl.sod.hlds.AtomicConcept;
 import it.poliba.sisinflab.owl.sod.hlds.Contraction;
+import it.poliba.sisinflab.owl.sod.hlds.GreaterThanRole;
 import it.poliba.sisinflab.owl.sod.hlds.Item;
+import it.poliba.sisinflab.owl.sod.hlds.LessThanRole;
+import it.poliba.sisinflab.owl.sod.hlds.SemanticDescription;
+import it.poliba.sisinflab.owl.sod.hlds.UniversalRole;
 import it.poliba.sisinflab.psw.PswDevice;
-import it.poliba.sisinflab.psw.PswUtils;
 
 public class KBManager {
 
@@ -47,6 +60,8 @@ public class KBManager {
 
     IRI mRequest = null;
 
+    final int DEFAULT_REQUEST = R.raw.mountadam_pinot_noir;
+
     public KBManager(Context mContext, int ontology) {
         this.mContext = mContext;
         manager = OWLManager.createOWLOntologyManager();
@@ -61,7 +76,7 @@ public class KBManager {
     }
 
     public KBManager(Context mContext) {
-        new KBManager(mContext, R.raw.cultural_vienna);
+        new KBManager(mContext, R.raw.wine_ontology_www18);
     }
 
     private void loadOntology(int onto_resource) {
@@ -91,13 +106,17 @@ public class KBManager {
             if (owl.exists())
                 tmp = manager.loadOntologyFromOntologyDocument(owl);
             else
-                tmp = manager.loadOntologyFromOntologyDocument(mContext.getResources().openRawResource(R.raw.mountadam_pinot_noir));
+                tmp = manager.loadOntologyFromOntologyDocument(mContext.getResources().openRawResource(DEFAULT_REQUEST));
 
             mRequest = reasoner.loadDemand(tmp).iterator().next();
             manager.removeOntology(tmp);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public int getDefaultRequest() {
+        return DEFAULT_REQUEST;
     }
 
     public static IRI loadIndividual(InputStream in) {
@@ -127,7 +146,7 @@ public class KBManager {
         }
     }
 
-    public PwsResult getPSWResult(File file, PwsResult pwsResult) {
+    public PwsResult getPSWResult(File file, PwsResult pwsResult, boolean load) {
         try {
             OWLOntology tmp = manager.loadOntologyFromOntologyDocument(file);
             if (tmp.getIndividualsInSignature().size()>0) {
@@ -139,7 +158,7 @@ public class KBManager {
                 String image = getAnnotation(tmp, ind, imgAP, "");
 
                 // load (if needed) the beacon annotation into the KB
-                if (!isLoaded(ind.getIRI())) {
+                if(!isLoaded(ind.getIRI()) || load) {
                     reasoner.loadSupply(tmp);
                     Log.d(TAG, ind.getIRI() + " loaded!");
                 }
@@ -157,9 +176,13 @@ public class KBManager {
                     .build();
                 return replacement;
             }
-        } catch (OWLOntologyCreationException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
+        // reset manager
+        for(OWLOntology onto : manager.getOntologies())
+            manager.removeOntology(onto);
 
         return pwsResult;
     }
@@ -204,6 +227,99 @@ public class KBManager {
 
         return rank;
 
+    }
+
+    public String generateOWL(IRI baseUri, SemanticDescription h, SemanticDescription g) {
+        System.out.println("Generating OWL " + baseUri.toString());
+
+        OWLOntologyManager tmp = OWLManager.createOWLOntologyManager();
+        OWLDataFactory df = tmp.getOWLDataFactory();
+
+        try {
+            OWLOntology tmpNew = tmp.createOntology(baseUri);
+
+            OWLObjectIntersectionOf desc = semDescToOWL(df, h);
+            OWLNamedIndividual ind = df.getOWLNamedIndividual(IRI.create(baseUri.toString() + "MissingFeatures"));
+
+            OWLClassAssertionAxiom ax = df.getOWLClassAssertionAxiom(desc, ind);
+            AddAxiom addAx = new AddAxiom(tmpNew, ax);
+            tmp.applyChange(addAx);
+
+            if (g != null) {
+                OWLObjectIntersectionOf desc2 = semDescToOWL(df, g);
+                OWLNamedIndividual ind2 = df.getOWLNamedIndividual(IRI.create(baseUri.toString() + "IncompatibleFeatures"));
+
+                OWLClassAssertionAxiom ax2 = df.getOWLClassAssertionAxiom(desc2, ind2);
+                AddAxiom addAx2 = new AddAxiom(tmpNew, ax2);
+                tmp.applyChange(addAx2);
+            }
+
+            ManchesterOWLSyntaxOntologyFormat ms = new ManchesterOWLSyntaxOntologyFormat();
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            tmp.saveOntology(tmpNew, ms, os);
+            String resp = os.toString();
+            os.close();
+
+            tmp.removeOntology(tmpNew);
+
+            return resp.replaceAll("\n+", "\n");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    private OWLObjectIntersectionOf semDescToOWL(OWLDataFactory df, SemanticDescription sd) {
+        Set<OWLClassExpression> desc = new HashSet<OWLClassExpression>();
+
+        for (AtomicConcept a : sd.atomicConcepts) {
+            OWLClass cls = df.getOWLClass(a.name);
+            if (!a.denied)
+                desc.add(cls);
+            else
+                desc.add(df.getOWLObjectComplementOf(cls));
+        }
+
+        for (LessThanRole ltr : sd.lessThanRoles) {
+            desc.add(df.getOWLObjectMaxCardinality(ltr.cardinality, df.getOWLObjectProperty(ltr.name)));
+        }
+
+        for (GreaterThanRole gtr : sd.greaterThanRoles) {
+            desc.add(df.getOWLObjectMinCardinality(gtr.cardinality, df.getOWLObjectProperty(gtr.name)));
+        }
+
+        for (UniversalRole ur : sd.universalRoles){
+            OWLObjectProperty p = df.getOWLObjectProperty(ur.name);
+            OWLObjectIntersectionOf filler = this.semDescToOWL(df, ur.filler);
+            desc.add(df.getOWLObjectAllValuesFrom(p, filler));
+        }
+
+        return df.getOWLObjectIntersectionOf(desc);
+    }
+
+    public String getExplaination(String individual) {
+        IRI resource = IRI.create(individual);
+        Item requestItem = reasoner.retrieveDemandIndividual(mRequest);
+
+        Item resourceItem = null;
+        if(reasoner.getSupplyIndividuals().contains(resource))
+            resourceItem = reasoner.retrieveSupplyIndividual(resource);
+        else
+            return null;
+
+        String owl = "";
+        if (resourceItem.description.checkCompatibility(requestItem.description)) {
+            SemanticDescription h = resourceItem.description.abduce(requestItem.description).H;
+            owl = generateOWL(IRI.create(resource.getNamespace()), h, null);
+        } else {
+            Contraction cc = resourceItem.description.contract(requestItem.description);
+            Abduction ca = resourceItem.description.abduce(cc.K);
+            owl = generateOWL(IRI.create(resource.getNamespace()), ca.H, cc.G);
+        }
+
+        return owl;
     }
 
 }

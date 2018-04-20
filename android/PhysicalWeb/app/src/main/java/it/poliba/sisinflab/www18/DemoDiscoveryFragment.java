@@ -19,13 +19,11 @@ import android.widget.ImageButton;
 
 import org.physical_web.collection.PhysicalWebCollection;
 import org.physical_web.collection.PwPair;
-import org.physical_web.physicalweb.BluetoothSite;
 import org.physical_web.physicalweb.Log;
 import org.physical_web.physicalweb.PermissionCheck;
 import org.physical_web.physicalweb.R;
 import org.physical_web.physicalweb.SwipeDismissListViewTouchListener;
 import org.physical_web.physicalweb.UrlDeviceDiscoveryService;
-import org.physical_web.physicalweb.WifiDirectConnect;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,15 +33,14 @@ import java.util.concurrent.TimeUnit;
 
 import it.poliba.sisinflab.psw.PswDeviceDiscoveryService;
 import it.poliba.sisinflab.psw.PswUtils;
-import it.poliba.sisinflab.psw.owl.KBManager;
 import it.poliba.sisinflab.www18.data.BeaconAdapter;
 
 public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscoveryService.UrlDeviceDiscoveryListener {
 
     private static final String TAG = DemoDiscoveryFragment.class.getSimpleName();
-    private static final long FIRST_SCAN_TIME_MILLIS = TimeUnit.SECONDS.toMillis(2);
-    private static final long SECOND_SCAN_TIME_MILLIS = TimeUnit.SECONDS.toMillis(5);
-    private static final long THIRD_SCAN_TIME_MILLIS = TimeUnit.SECONDS.toMillis(10);
+    private static final long FIRST_SCAN_TIME_MILLIS = TimeUnit.SECONDS.toMillis(1);
+    private static final long SECOND_SCAN_TIME_MILLIS = TimeUnit.SECONDS.toMillis(3);
+    private static final long THIRD_SCAN_TIME_MILLIS = TimeUnit.SECONDS.toMillis(5);
 
     private List<String> mGroupIdQueue;
     private PhysicalWebCollection mPwCollection = null;
@@ -52,14 +49,14 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
     private boolean mFirstTime;
     private boolean mMissedEmptyGroupIdQueue = false;
 
-    private WifiDirectConnect mWifiDirectConnect;
-    private BluetoothSite mBluetoothSite;
-
-    static private KBManager mKBManager = null;
+    //private WifiDirectConnect mWifiDirectConnect;
+    //private BluetoothSite mBluetoothSite;
 
     private DiscoveryServiceConnection mDiscoveryServiceConnection;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private BeaconAdapter adapter;
+
+    private Context mContext;
 
     public static DemoDiscoveryFragment newInstance() {
         DemoDiscoveryFragment fragment = new DemoDiscoveryFragment();
@@ -71,11 +68,15 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
         super.onCreate(savedInstanceState);
 
         mDiscoveryServiceConnection = new DiscoveryServiceConnection();
-        mWifiDirectConnect = new WifiDirectConnect(getActivity());
-        mBluetoothSite = new BluetoothSite(getActivity());
+        //mWifiDirectConnect = new WifiDirectConnect(getActivity());
+        //mBluetoothSite = new BluetoothSite(getActivity());
 
         mGroupIdQueue = new ArrayList<>();
         mHandler = new Handler();
+
+        adapter = new BeaconAdapter();
+
+        mContext = getActivity().getBaseContext();
     }
 
     @Override
@@ -92,19 +93,8 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
         LinearLayoutManager llm = new LinearLayoutManager(getActivity().getBaseContext());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
-        adapter = new BeaconAdapter();
         rv.setLayoutManager(llm);
-        //rv.setHasFixedSize(true);
         rv.setAdapter(adapter);
-
-        ImageButton fab = (ImageButton) view.findViewById(R.id.fabDemoBeacons);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //resetAdapter();
-                //restartScan();
-            }
-        });
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshDiscoveryLayout);
         mSwipeRefreshLayout.setColorSchemeResources(R.color.www18_accent);
@@ -182,7 +172,7 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
                 return;
             }
 
-            mDiscoveryService.removeCallback(DemoDiscoveryFragment.this);
+            //mDiscoveryService.removeCallback(DemoDiscoveryFragment.this);
             mDiscoveryService = null;
             getActivity().unbindService(this);
             stopScanningDisplay();
@@ -276,20 +266,22 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
         }*/
 
         //Collections.sort(pwPairs, new Utils.PwPairRelevanceComparator());
-        Collections.sort(pwPairs, new PswUtils.PwPairSemanticBasedComparator(getActivity()));
+
+        /*Collections.sort(pwPairs, new PswUtils.PwPairSemanticBasedComparator(getActivity()));
         for (PwPair pwPair : pwPairs) {
-            adapter.addItem(pwPair, getContext());
-        }
+            adapter.addItem(pwPair, mContext);
+        }*/
         mGroupIdQueue.clear();
         adapter.notifyDataSetChanged();
     }
 
     @Override
     public void onUrlDeviceDiscoveryUpdate() {
-        for (PwPair pwPair : mPwCollection.getGroupedPwPairsSortedByRank(
-                new PswUtils.PwPairSemanticBasedComparator(this.getActivity()))) {
+        /*for (PwPair pwPair : mPwCollection.getGroupedPwPairsSortedByRank(
+                new PswUtils.PwPairSemanticBasedComparator(this.getActivity()))) {*/
 
-            adapter.addItem(pwPair, getContext());
+        for (PwPair pwPair : mPwCollection.getPwPairs()) {
+            adapter.addItem(pwPair, mContext);
 
             /*String groupId = Utils.getGroupId(pwPair.getPwsResult());
             Log.d(TAG, "groupid to add " + groupId);
@@ -301,7 +293,9 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
             }*/
         }
 
-        if(mGroupIdQueue.isEmpty() || !mSecondScanComplete) {
+        adapter.sortItems();
+
+        if(!mSecondScanComplete) { // removed: mGroupIdQueue.isEmpty() ||
             return;
         }
         // Since this callback is given on a background thread and we want

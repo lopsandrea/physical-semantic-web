@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -18,23 +17,21 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.apache.commons.io.IOUtils;
+import org.json.JSONException;
 import org.physical_web.collection.PwPair;
 import org.physical_web.collection.UrlDevice;
 import org.physical_web.physicalweb.R;
 import org.physical_web.physicalweb.Utils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.TreeMap;
 
 import it.poliba.sisinflab.owleditor.OWLEditorActivity;
 import it.poliba.sisinflab.owleditor.OWLIndividualFragment;
+import it.poliba.sisinflab.psw.PswDevice;
 import it.poliba.sisinflab.psw.PswUtils;
 import it.poliba.sisinflab.www18.DemoFragmentActivity;
 import it.poliba.sisinflab.www18.DemoInfoFragment;
@@ -99,17 +96,18 @@ public class BeaconAdapter extends RecyclerView.Adapter<BeaconAdapter.BeaconView
         mContext.startActivity(intent);
     }
 
-    private void showExplaination() {
-        String owlAnnotation = null;
-        try {
-            owlAnnotation = IOUtils.toString(mContext.getResources().openRawResource(R.raw.wine_fake_exp_www18), StandardCharsets.UTF_8);
-            Intent intent = new Intent(mContext, OWLEditorActivity.class);
-            intent.putExtra(mContext.getString(R.string.owl_string_key), owlAnnotation);
-            intent.putExtra(mContext.getString(R.string.owl_fragment_key), OWLIndividualFragment.class.getSimpleName());
-            mContext.startActivity(intent);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void showExplanation(String individual) {
+        String owlAnnotation = DemoWineActivity.getKBManager().getExplaination(individual);
+        Intent intent = new Intent(mContext, OWLEditorActivity.class);
+        intent.putExtra(mContext.getString(R.string.owl_string_key), owlAnnotation);
+        intent.putExtra(mContext.getString(R.string.owl_fragment_key), OWLIndividualFragment.class.getSimpleName());
+        mContext.startActivity(intent);
+    }
+
+    private void openURL(String url, String title, View view) {
+        db.addVisited(url, title);
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        view.getContext().startActivity(browserIntent);
     }
 
     @Override
@@ -120,8 +118,12 @@ public class BeaconAdapter extends RecyclerView.Adapter<BeaconAdapter.BeaconView
         double rank = (1.0 - PswUtils.getRank(items.get(i).pwPair.getPwsResult(), items.get(i).pwPair.getUrlDevice(), mContext))*100;
         if (rank > 90)
             personViewHolder.beaconRankImg.setImageResource(R.drawable.wine_full);
+        else if (rank > 75)
+            personViewHolder.beaconRankImg.setImageResource(R.drawable.wine_high);
         else if (rank > 50)
             personViewHolder.beaconRankImg.setImageResource(R.drawable.wine_medium);
+        else if (rank > 25)
+            personViewHolder.beaconRankImg.setImageResource(R.drawable.wine_med_low);
         else
             personViewHolder.beaconRankImg.setImageResource(R.drawable.wine_empty);
 
@@ -134,6 +136,7 @@ public class BeaconAdapter extends RecyclerView.Adapter<BeaconAdapter.BeaconView
                     builderSingle.setTitle("Show OWL annotation");
 
                     final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(mContext, android.R.layout.select_dialog_item);
+                    arrayAdapter.add("Open URL");
                     arrayAdapter.add("Beacon Description");
                     arrayAdapter.add("Rank Explaination");
 
@@ -142,17 +145,26 @@ public class BeaconAdapter extends RecyclerView.Adapter<BeaconAdapter.BeaconView
                         public void onClick(DialogInterface dialog, int which) {
                             db.addVisited(items.get(i).pwPair.getPwsResult().getRequestUrl(), items.get(i).pwPair.getPwsResult().getTitle());
                             if (which == 0) {
+                                try {
+                                    openURL(items.get(i).pwPair.getPwsResult().getExtraString(PswDevice.PSW_BEACON_URL_KEY),
+                                            items.get(i).pwPair.getPwsResult().getTitle(), view);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            } else if (which == 1) {
                                 showAnnotation(items.get(i).pwPair.getUrlDevice());
                             } else {
-                                showExplaination();
+                                try {
+                                    showExplanation(items.get(i).pwPair.getPwsResult().getExtraString(PswDevice.PSW_IRI_KEY));
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
                             }
                         }
                     });
                     builderSingle.show();
                 } else {
-                    db.addVisited(items.get(i).pwPair.getPwsResult().getRequestUrl(), items.get(i).pwPair.getPwsResult().getTitle());
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(items.get(i).pwPair.getPwsResult().getRequestUrl()));
-                    view.getContext().startActivity(browserIntent);
+                    openURL(items.get(i).pwPair.getPwsResult().getRequestUrl(), items.get(i).pwPair.getPwsResult().getTitle(), view);
                 }
             }
         });
@@ -222,7 +234,15 @@ public class BeaconAdapter extends RecyclerView.Adapter<BeaconAdapter.BeaconView
         prop.add(getProperty("Group ID", pw.getPwsResult().getGroupId()));
         prop.add(getProperty("Icon URL", pw.getPwsResult().getIconUrl()));
         prop.add(getProperty("Request URL", pw.getPwsResult().getRequestUrl()));
-        prop.add(getProperty("Site URL", pw.getPwsResult().getSiteUrl()));
+
+        if (PswUtils.isPswUidDevice(pw.getUrlDevice())) {
+            try {
+                prop.add(getProperty("Site URL", pw.getPwsResult().getExtraString(PswDevice.PSW_BEACON_URL_KEY)));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } else
+            prop.add(getProperty("Site URL", pw.getPwsResult().getSiteUrl()));
 
         prop.add(getProperty("Rank (Penalty Score)", String.valueOf(PswUtils.getRank(pw.getPwsResult(), pw.getUrlDevice(), mContext))));
         prop.add(getProperty("TxPower", String.valueOf(Utils.getTxPower(pw.getUrlDevice()))));
@@ -265,7 +285,7 @@ public class BeaconAdapter extends RecyclerView.Adapter<BeaconAdapter.BeaconView
                 items.add(new BeaconItem(System.currentTimeMillis(), pw, c));
         }
 
-        items.sort(beaconItemComparator);
+        Collections.sort(items, beaconItemComparator);
     }
 
     private boolean isShown(String url) {
@@ -278,11 +298,20 @@ public class BeaconAdapter extends RecyclerView.Adapter<BeaconAdapter.BeaconView
 
     private void updateItem(PwPair pwPair) {
         for (int i = 0; i < items.size(); ++i) {
-            long diff = System.currentTimeMillis() - items.get(i).timestamp;
-            if(items.get(i).pwPair.getPwsResult().getRequestUrl().equalsIgnoreCase(pwPair.getPwsResult().getRequestUrl())
-                    && diff > 30000) {
+            //long diff = System.currentTimeMillis() - items.get(i).timestamp;
+            if(items.get(i).pwPair.getPwsResult().getRequestUrl().equalsIgnoreCase(pwPair.getPwsResult().getRequestUrl())) {
                 items.get(i).timestamp = System.currentTimeMillis();
                 items.get(i).pwPair = pwPair;
+                return;
+            }
+        }
+    }
+
+    private void removeItem(PwPair pwPair) {
+        for (int i = 0; i < items.size(); ++i) {
+            //long diff = System.currentTimeMillis() - items.get(i).timestamp;
+            if(items.get(i).pwPair.getPwsResult().getRequestUrl().equalsIgnoreCase(pwPair.getPwsResult().getRequestUrl())) {
+                items.remove(i);
                 return;
             }
         }
@@ -302,13 +331,17 @@ public class BeaconAdapter extends RecyclerView.Adapter<BeaconAdapter.BeaconView
 
     public void addItem(PwPair pwPair, Context c) {
         if (pwPair != null) {
-            if(isShown(pwPair.getPwsResult().getRequestUrl()))
+            if (PswUtils.isPswDevice(pwPair.getUrlDevice()) && !PswUtils.isPswEnabled(c))
+                removeItem(pwPair);
+            else if(isShown(pwPair.getPwsResult().getRequestUrl()))
                 updateItem(pwPair);
             else
                 items.add(new BeaconItem(System.currentTimeMillis(), pwPair, c));
-
-            items.sort(beaconItemComparator);
         }
+    }
+
+    public void sortItems() {
+        Collections.sort(items, beaconItemComparator);
     }
 
     /*boolean isFolderItem(PwPair item) {

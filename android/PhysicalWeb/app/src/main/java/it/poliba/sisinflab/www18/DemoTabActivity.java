@@ -137,6 +137,7 @@ public class DemoTabActivity extends Activity implements ActionBar.TabListener {
             Intent intent = new Intent(this, OWLEditorActivity.class);
             intent.putExtra(getString(R.string.owl_string_key), owl);
             intent.putExtra(getString(R.string.owl_fragment_key), OWLBuilderFragment.class.getSimpleName());
+            intent.putExtra(getString(R.string.owl_default_request_key), DemoWineActivity.getKBManager().getDefaultRequest());
             startActivity(intent);
         } else
             Toast.makeText(this, getString(R.string.psw_no_owl), Toast.LENGTH_SHORT).show();

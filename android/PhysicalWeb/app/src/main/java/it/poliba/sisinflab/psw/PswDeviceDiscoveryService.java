@@ -24,11 +24,13 @@ import org.physical_web.physicalweb.UrlDeviceDiscoveryService;
 import org.physical_web.physicalweb.Utils;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import it.poliba.sisinflab.psw.ble.BluetoothSPPClient;
 import it.poliba.sisinflab.psw.ble.PswUidBluetoothGattCallback;
 
 public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
@@ -52,7 +54,7 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
     @Override
     protected void initialize() {
         super.initialize();
-        if (PswUtils.isPswEnabled(this)) {
+        //if (PswUtils.isPswEnabled(this)) {
 
             // Remove basic BleUrlDeviceDiscoverer
             for(int i=0; i<mUrlDeviceDiscoverers.size(); i++) {
@@ -69,19 +71,23 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
             mUrlDeviceDiscoverers.add(mPDD);
 
             bleGatt = new PswUidBluetoothGattCallback(getBaseContext());
-        }
+        //}
     }
 
     @Override
     public void onUrlDeviceDiscovered(UrlDevice urlDevice) {
             try {
                 if (urlDevice.getExtraString(PswUtils.TYPE_KEY).equals(PswUtils.PSW_URL_DEVICE_TYPE)) {
-                    //if (PswUtils.isPswEnabled(getBaseContext()))
-                    this.onPswUrlDeviceDiscovered(urlDevice);
+                    if (PswUtils.isPswEnabled(getBaseContext()))
+                        this.onPswUrlDeviceDiscovered(urlDevice);
+                    else
+                        getPwCollection().removeUrlDevice(urlDevice);
                 } else if (urlDevice.getExtraString(PswUtils.TYPE_KEY).equals(PswUtils.PSW_UID_DEVICE_TYPE)) {
-                    //if (PswUtils.isPswEnabled(getBaseContext()))
-                    this.onPswUidDeviceDiscovered(urlDevice);
-                } else
+                    if (PswUtils.isPswEnabled(getBaseContext()))
+                        this.onPswUidDeviceDiscovered(urlDevice);
+                    else
+                        getPwCollection().removeUrlDevice(urlDevice);
+                } else if (urlDevice.getUrl().length()<=30)
                     super.onUrlDeviceDiscovered(urlDevice);
             } catch (Exception e) {
                 Log.e(TAG, "Beacon Type not found!");
@@ -104,61 +110,12 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
             if (!bleGatt.isRunning()) {
                 bleGatt.connect(urlDevice.getUrl(), filename, new PswUidConnectionListener(filename, urlDevice.getUrl()));
             }
-
-        /*String mac = PswUtils.getRemoteDeviceMacHex(urlDevice);
-        String onto = PswUtils.getOntologyID(urlDevice);
-        String id = PswUtils.getInstanceID(urlDevice);
-        String cmd = onto + ";" + id;
-
-        new BluetoothSPPClient(new PswUidSPPListener()).execute(mac, cmd, filename, urlDevice.getUrl());*/
-
         } else {
             PwsResult pwsResult = mPwCollection.getMetadataByBroadcastUrl(urlDevice.getUrl());
             if (pwsResult != null && PswUtils.getResourceIRI(pwsResult) == null) {
-                refreshPSWData(owl, pwsResult);
-                //updateNotifications();
+                refreshPSWData(owl, pwsResult, false);
             } else
                 triggerCallback();
-        }
-
-
-    }
-
-    int bt_notification_id = 0;
-    private class PswUidSPPListener implements BluetoothSPPClient.OnTaskCompleted {
-        @Override
-        public void onTaskCompleted(String receivedOWL, String filename, String url) {
-            if(receivedOWL != null && receivedOWL.length()>0) {
-                Log.d(TAG, "PSW-UID file downloaded!");
-
-                NotificationCompat.Builder mBuilder =
-                        new NotificationCompat.Builder(getBaseContext())
-                                .setAutoCancel(true)
-                                .setGroup("PSW-UID")
-                                .setSmallIcon(R.drawable.ic_notification)
-                                .setContentTitle("PSW-UID Beacon downloaded!")
-                                .setContentText("Local OWL fragment @" + url);
-                NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                mNotificationManager.notify(TAG, bt_notification_id++, mBuilder.build());
-
-                File owl = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + filename + ".owl");
-                /*FileOutputStream stream = null;
-                try {
-                    stream = new FileOutputStream(owl);
-                    stream.write(receivedOWL.getBytes());
-                    stream.flush();
-                    stream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }*/
-
-                PwsResult pwsResult = mPwCollection.getMetadataByBroadcastUrl(url);
-                if (pwsResult != null && PswUtils.getResourceIRI(pwsResult) != null) {
-                    refreshPSWData(owl, pwsResult);
-                    //updateNotifications();
-                } else
-                    triggerCallback();
-            }
         }
     }
 
@@ -173,25 +130,39 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
 
         @Override
         public void onConnectionFinished() {
-            Log.d(TAG, "PSW-UID file downloaded!");
-
-            NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(getBaseContext())
-                    .setSmallIcon(R.drawable.ic_notification)
-                    .setAutoCancel(true)
-                    .setNumber(5)
-                    .setGroup("PSW-UID")
-                    .setContentTitle("PSW-UID Beacon")
-                    .setContentText("OWL fragment downloaded!");
-            NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            mNotificationManager.notify(TAG, 0, mBuilder.build());
+            Log.d(TAG, "PSW-UID download. TaskCompleted!");
 
             File owl = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + mFile + ".owl");
+            if (owl != null && owl.length()>0) {
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(getBaseContext())
+                                .setSmallIcon(R.drawable.ic_notification)
+                                .setAutoCancel(true)
+                                .setNumber(5)
+                                .setGroup("PSW-UID")
+                                .setContentTitle("PSW-UID Beacon")
+                                .setContentText("OWL fragment downloaded!");
+                NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                mNotificationManager.notify(TAG, 0, mBuilder.build());
+            } else {
+                Log.e(TAG, "PSW-UID OWL file not found!");
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(getBaseContext())
+                                .setSmallIcon(android.R.drawable.ic_dialog_alert)
+                                .setAutoCancel(true)
+                                .setNumber(5)
+                                .setGroup("PSW-UID")
+                                .setContentTitle("PSW-UID Beacon")
+                                .setContentText("Download failed. Please retry!");
+                NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                mNotificationManager.notify(TAG, 0, mBuilder.build());
+                return;
+            }
+
             PwsResult pwsResult = mPwCollection.getMetadataByBroadcastUrl(mUrl);
-            if (pwsResult != null && PswUtils.getResourceIRI(pwsResult) == null) {
-                refreshPSWData(owl, pwsResult);
-                //updateNotifications();
-            } else
+            if (pwsResult != null && PswUtils.getResourceIRI(pwsResult) == null)
+                refreshPSWData(owl, pwsResult, true);
+            else
                 triggerCallback();
 
         }
@@ -251,23 +222,33 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
             triggerCallback();
     }
 
-    private void refreshPSWData(File owl, PwsResult pwsResult) {
-        PwsResult replacement = PswUtils.getPSWResult(owl, pwsResult);
+    private void refreshPSWData(File owl, PwsResult pwsResult, boolean loadInKB) {
+        PwsResult replacement = PswUtils.getPSWResult(owl, pwsResult, loadInKB);
         mPwCollection.addMetadata(replacement);
         triggerCallback();
         updateNotifications();
     }
 
     private long mDownloadedFileID = -1;
+    private boolean downloading = false;
+
+    private File getOWLFile(String name) {
+        for(File f : Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).listFiles()) {
+            if (f.getName().startsWith(name))
+                return f;
+        }
+        return null;
+    }
 
     private void addPSWMetadata(PwsResult pwsResult) {
         Uri url = Uri.parse(pwsResult.getRequestUrl());
-        File owl = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + url.getLastPathSegment() + ".owl");
+        //File owl = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + url.getLastPathSegment() + ".owl");
+        File owl = getOWLFile(url.getLastPathSegment());
 
-        if (owl.exists() && !PswUtils.isObsolete(owl, getBaseContext())) {
+        if (owl != null && !PswUtils.isObsolete(owl, getBaseContext())) {
             // load file previously downloaded
-            refreshPSWData(owl, pwsResult);
-        } else {
+            refreshPSWData(owl, pwsResult, false);
+        } else if (!downloading) {
             // get download service and enqueue file
             final DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
             DownloadManager.Request request = new DownloadManager.Request(url);
@@ -283,17 +264,20 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
             BroadcastReceiver onComplete = new BroadcastReceiver() {
                 public void onReceive(Context ctxt, Intent intent) {
                     Log.i(TAG, pwsResult.getRequestUrl() + " downloaded!");
+                    downloading = false;
 
                     if (mDownloadedFileID == -1)
                         return;
                     else {
                         Uri uri = manager.getUriForDownloadedFile(mDownloadedFileID);
                         if (uri != null) {
-                            String mostRecentDownload = uri.getLastPathSegment();
+                            /*String mostRecentDownload = uri.getLastPathSegment();
                             if (owl.getAbsolutePath().contains(mostRecentDownload)) {
-                                //File tmp = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + mostRecentDownload);
-                                refreshPSWData(owl, pwsResult);
-                            }
+                                refreshPSWData(owl, pwsResult, true);
+                            }*/
+
+                            File tmp = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/" + url.getLastPathSegment() + ".owl");
+                            refreshPSWData(tmp, pwsResult, true);
                         }
                     }
 
@@ -302,8 +286,8 @@ public class PswDeviceDiscoveryService extends UrlDeviceDiscoveryService {
             };
 
             c.registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
-
             mDownloadedFileID = manager.enqueue(request);
+            downloading = true;
         }
     }
 

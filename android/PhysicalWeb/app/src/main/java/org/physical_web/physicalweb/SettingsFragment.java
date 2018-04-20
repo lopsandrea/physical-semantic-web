@@ -91,7 +91,7 @@ public class SettingsFragment extends PreferenceFragment
       Toast.makeText(getActivity(), R.string.error_pws_endpoint_not_configured_properly,
                      Toast.LENGTH_SHORT).show();
     }
-    Utils.startScan(getActivity());
+    //Utils.startScan(getActivity());
   }
 
   @Override
