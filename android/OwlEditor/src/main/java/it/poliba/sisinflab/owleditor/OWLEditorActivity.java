@@ -1,8 +1,10 @@
 package it.poliba.sisinflab.owleditor;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.FragmentActivity;
@@ -18,14 +20,17 @@ public class OWLEditorActivity extends FragmentActivity {
     String TAG = OWLEditorActivity.class.getSimpleName();
 
     OWLVisitor mVisitor;
-    OWLItem mRequest;
+
+    Fragment f = null;
+    public static boolean saved;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        saved = true;
+
         int style = R.style.AppTheme;
-        Fragment f = null;
         String fragment = getIntent().getStringExtra(getString(R.string.owl_fragment_key));
         if (fragment != null) {
             buildVisitor();
@@ -33,7 +38,7 @@ public class OWLEditorActivity extends FragmentActivity {
             if (fragment.equals(OWLIndividualFragment.class.getSimpleName())) {
                 f = new OWLIndividualFragment();
             } else if (fragment.equals(OWLBuilderFragment.class.getSimpleName())) {
-                mRequest = new OWLItem(OWLItem.OWL_INDIVIDUAL, IRI.create(getString(R.string.owl_request_default_name)));
+                OWLItem mRequest = new OWLItem(OWLItem.OWL_INDIVIDUAL, IRI.create(getString(R.string.owl_request_default_name)));
                 f = new OWLBuilderFragment();
                 Bundle args = new Bundle();
                 args.putParcelable(getString(R.string.owl_request_key), mRequest);
@@ -66,9 +71,29 @@ public class OWLEditorActivity extends FragmentActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        if (getFragmentManager().getBackStackEntryCount() == 0)
-            finish();
+        if (getFragmentManager().getBackStackEntryCount() == 1) {
+            if (f instanceof OWLBuilderFragment && !saved) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+                alertDialogBuilder.setTitle("Warning");
+                alertDialogBuilder
+                        .setMessage("Request not saved! Are you sure you want to quit?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No",new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+            } else
+                finish();
+        } else
+            super.onBackPressed();
     }
 
     private void buildVisitor() {
@@ -79,13 +104,14 @@ public class OWLEditorActivity extends FragmentActivity {
             finish();
     }
 
-    public void saveOWLRequest(String reqName) {
-        if (mRequest.getFiller().size() > 0 && mVisitor != null) {
+    public void saveOWLRequest(String reqName, OWLItem request) {
+        if (request.getFiller().size() > 0 && mVisitor != null) {
             String path = Environment.getExternalStorageDirectory().toString();
-            File owl = new File(path + "/owleditor", mRequest.getIRI().getFragment() + ".owl");
-            mVisitor.saveOWLRequest(mRequest.getIRI().getFragment(), mRequest, owl);
+            File owl = new File(path + "/owleditor", request.getIRI().getFragment() + ".owl");
+            mVisitor.saveOWLRequest(request.getIRI().getFragment(), request, owl);
             Toast.makeText(this, "Request Saved!", Toast.LENGTH_SHORT).show();
             Log.d(TAG, owl.getPath() + " saved!");
+            saved = true;
         } else
             Toast.makeText(this, "Empty Request!", Toast.LENGTH_SHORT).show();
 

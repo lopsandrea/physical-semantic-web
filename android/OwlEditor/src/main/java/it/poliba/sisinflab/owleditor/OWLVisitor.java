@@ -136,7 +136,7 @@ class OWLVisitor {
             mOWLManager.addAxiom(onto, ax);
 
             ManchesterOWLSyntaxOntologyFormat format = new ManchesterOWLSyntaxOntologyFormat();
-            format.setDefaultPrefix(mOntology.getOntologyID().getDefaultDocumentIRI().toString() + "#");
+            format.setDefaultPrefix(mOntology.getOntologyID().getDefaultDocumentIRI().toString());
 
             mOWLManager.saveOntology(onto, format, IRI.create(out.toURI()));
             mOWLManager.removeOntology(onto);

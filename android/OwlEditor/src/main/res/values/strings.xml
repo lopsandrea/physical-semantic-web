@@ -6,6 +6,7 @@
     <string name="owl_string_key">owl</string>
     <string name="owl_item_key">owl_item</string>
     <string name="owl_request_key">owl_request</string>
+    <string name="owl_default_request_key">owl_def_request</string>
     <string name="owl_type_key">owl_type</string>
     <string name="owl_fragment_key">main_container</string>
 

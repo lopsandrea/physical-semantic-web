@@ -1,9 +1,7 @@
 package it.poliba.sisinflab.owleditor;
 
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.ListFragment;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.LayoutInflater;
@@ -23,7 +21,6 @@ import org.semanticweb.owlapi.model.IRI;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -55,11 +52,14 @@ public class OWLBuilderFragment extends ListFragment {
         // Handle item selection
         switch (item.getOrder()) {
             case 0:
-                ((OWLEditorActivity)getActivity()).saveOWLRequest("Test");
+                //SAVE REQUEST
+                ((OWLEditorActivity)getActivity()).saveOWLRequest("Test", localRequest);
                 return true;
             case 1:
+                //CLEAR REQUEST
                 mAdapter.clear();
                 localRequest = new OWLItem(OWLItem.OWL_INDIVIDUAL, IRI.create(getString(R.string.owl_request_default_name)));
+                getActivity().getActionBar().setTitle(getString(R.string.owl_request_default_name));
                 mAdapter.notifyDataSetChanged();
                 return true;
             default:
@@ -101,47 +101,6 @@ public class OWLBuilderFragment extends ListFragment {
         fab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
-                /*AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle(R.string.owl_element_title)
-                    .setItems(R.array.owl_element_array, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int pos) {
-                            Bundle args = new Bundle();
-                            args.putParcelable(getString(R.string.owl_request_key), localRequest);
-
-                            Fragment f = null;
-                            switch (pos) {
-                                case 0:
-                                    args.putInt(getString(R.string.owl_type_key), OWLItem.OWL_CLASS);
-                                    f = new OWLClassFragment();
-                                    break;
-                                case 1:
-                                    args.putInt(getString(R.string.owl_type_key), OWLItem.OWL_ALL_VALUES_FROM);
-                                    f = new OWLObjectPropertyFragment();
-                                    break;
-                                case 2:
-                                    args.putInt(getString(R.string.owl_type_key), OWLItem.OWL_MIN_CARDINALITY);
-                                    f = new OWLObjectPropertyFragment();
-                                    break;
-                                case 3:
-                                    args.putInt(getString(R.string.owl_type_key), OWLItem.OWL_MAX_CARDINALITY);
-                                    f = new OWLObjectPropertyFragment();
-                                    break;
-                                case 4:
-                                    args.putInt(getString(R.string.owl_type_key), OWLItem.OWL_COMPLEMENT_OF);
-                                    f = new OWLClassFragment();
-                                    break;
-
-                                default:
-                                    return;
-                            }
-
-                            f.setArguments(args);
-                            showFragment(f);
-                        }
-                    });
-                builder.create().show();*/
-
                 if (fabExpanded)
                     closeSubMenusFab();
                 else
@@ -187,6 +146,7 @@ public class OWLBuilderFragment extends ListFragment {
                         return;
                 }
 
+                OWLEditorActivity.saved = false;
                 f.setArguments(args);
                 showFragment(f);
                 closeSubMenusFab();
@@ -224,15 +184,38 @@ public class OWLBuilderFragment extends ListFragment {
         mAdapter = new OWLExpressionAdapter(getActivity());
         localRequest = getArguments().getParcelable(getString(R.string.owl_request_key));
 
-        String path = Environment.getExternalStorageDirectory().toString();
-        File owl = new File(path + "/owleditor", localRequest.getIRI().getFragment() + ".owl");
-        if (owl.exists())
-            loadUserRequest(owl);
+        int default_req = getActivity().getIntent().getIntExtra(getString(R.string.owl_default_request_key), -1);
+
+        if (localRequest.getFiller().size() == 0) {
+            String path = Environment.getExternalStorageDirectory().toString();
+            File owl = new File(path + "/owleditor", localRequest.getIRI().getFragment() + ".owl");
+            if (owl.exists())
+                loadUserRequest(owl);
+            else if (default_req != -1) {
+                loadCurrentRequest(default_req);
+                getActivity().getIntent().removeExtra(getString(R.string.owl_default_request_key));
+            }
+        }
 
         for (OWLItem item : localRequest.getFiller())
             mAdapter.addItem(item);
 
         mTitle = localRequest.getIRI().getFragment(); //New OWL Request
+    }
+
+    private void loadCurrentRequest(int reqId) {
+        InputStream in = getActivity().getBaseContext().getResources().openRawResource(reqId);
+        try {
+            String owl = convertStreamToString(in);
+            OWLVisitor visitor = new OWLVisitor(owl);
+
+            if (visitor.getOWLIndividuals().size()>0)
+                localRequest = visitor.getOWLIndividuals().get(0);
+
+            in.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void loadUserRequest(File file) {
