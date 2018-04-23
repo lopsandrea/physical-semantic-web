@@ -219,7 +219,7 @@ public class KBManager {
                 Contraction cc = resourceItem.description.contract(requestItem.description);
                 Abduction ca = resourceItem.description.abduce(cc.K);
                 double ca_max = empty.description.abduce(cc.K).penalty;
-                rank = cc.penalty/max + ca.penalty/ca_max;
+                rank = 1.5 * cc.penalty/max + ca.penalty/ca_max;
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -142,10 +142,10 @@ public class DemoAdvertisingActivity extends PreferenceActivity {
 
     static private void startAdvertising() {
         Intent intent = new Intent(mContext, PswUidBroadcastService.class);
-        intent.putExtra(PswUidBroadcastService.TITLE_KEY, "MountadamPinotNoir");
+        intent.putExtra(PswUidBroadcastService.TITLE_KEY, "Bancroft Chardonnay");
 
         try {
-            byte[] data =  Utils.getBytes(mContext.getResources().openRawResource(R.raw.mountadam_pinot_noir));
+            byte[] data =  Utils.getBytes(mContext.getResources().openRawResource(R.raw.bancroft_chardonnay));
             intent.putExtra(PswUidBroadcastService.DATA_KEY, data);
         } catch (IOException e) {
             e.printStackTrace();

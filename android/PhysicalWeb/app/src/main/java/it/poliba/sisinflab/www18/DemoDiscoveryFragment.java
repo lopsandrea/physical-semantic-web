@@ -53,8 +53,9 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
     //private BluetoothSite mBluetoothSite;
 
     private DiscoveryServiceConnection mDiscoveryServiceConnection;
-    private SwipeRefreshLayout mSwipeRefreshLayout;
-    private BeaconAdapter adapter;
+    private static SwipeRefreshLayout mSwipeRefreshLayout;
+    private static BeaconAdapter adapter;
+    private static RecyclerView rv;
 
     private Context mContext;
 
@@ -88,7 +89,7 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_demo_beacon_discovery, container, false);
 
-        RecyclerView rv = (RecyclerView) view.findViewById(R.id.rv);
+        rv = (RecyclerView) view.findViewById(R.id.rv);
 
         LinearLayoutManager llm = new LinearLayoutManager(getActivity().getBaseContext());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
@@ -101,12 +102,28 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mSwipeRefreshLayout.setRefreshing(true);
                 restartScan();
             }
         });
 
         return view;
+    }
+
+    public void startRefresh() {
+        if (!mSwipeRefreshLayout.isRefreshing()) {
+            mSwipeRefreshLayout.setRefreshing(true);
+            rv.setClickable(false);
+            rv.setEnabled(false);
+        }
+    }
+
+    public static void stopRefresh() {
+        mSwipeRefreshLayout.setRefreshing(false);
+        rv.setEnabled(true);
+        rv.setClickable(true);
+        adapter.sortItems();
+        adapter.notifyDataSetChanged();
+        Log.d(TAG, "stopRefresh");
     }
 
     public void restartScan() {
@@ -187,8 +204,9 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
         if (elapsedMillis < FIRST_SCAN_TIME_MILLIS
                 || (elapsedMillis < SECOND_SCAN_TIME_MILLIS && !hasResults)) {
             adapter.clear();
+            startRefresh();
         } else {
-            mSwipeRefreshLayout.setRefreshing(false);
+            //mSwipeRefreshLayout.setRefreshing(false);
         }
 
         // Schedule the timeouts
@@ -208,9 +226,11 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
         mHandler.removeCallbacks(mThirdScanTimeout);
 
         // Change the display appropriately
-        mSwipeRefreshLayout.setRefreshing(false);
-    }
+        //mSwipeRefreshLayout.setRefreshing(false);
 
+        adapter.sortItems();
+        adapter.notifyDataSetChanged();
+    }
 
     // The display of gathered urls happens as follows
     // 0. Begin scan
@@ -225,8 +245,8 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
         public void run() {
             Log.d(TAG, "running first scan timeout");
             if (!mGroupIdQueue.isEmpty()) {
-                emptyGroupIdQueue();
-                mSwipeRefreshLayout.setRefreshing(false);
+                //emptyGroupIdQueue();
+                //mSwipeRefreshLayout.setRefreshing(false);
             }
         }
     };
@@ -236,9 +256,9 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
         @Override
         public void run() {
             Log.d(TAG, "running second scan timeout");
-            emptyGroupIdQueue();
+            //emptyGroupIdQueue();
             mSecondScanComplete = true;
-            mSwipeRefreshLayout.setRefreshing(false);
+            //mSwipeRefreshLayout.setRefreshing(false);
         }
     };
 
@@ -248,6 +268,7 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
         public void run() {
             Log.d(TAG, "running third scan timeout");
             mDiscoveryServiceConnection.disconnect();
+            //mSwipeRefreshLayout.setRefreshing(false);
         }
     };
 
@@ -257,7 +278,7 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
             return;
         }
 
-        List<PwPair> pwPairs = new ArrayList<>();
+        //List<PwPair> pwPairs = new ArrayList<>();
 
         /*for (String groupId : mGroupIdQueue) {
             Log.d(TAG, "groupid " + groupId);
@@ -272,6 +293,8 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
             adapter.addItem(pwPair, mContext);
         }*/
         mGroupIdQueue.clear();
+
+        adapter.sortItems();
         adapter.notifyDataSetChanged();
     }
 
@@ -293,7 +316,7 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
             }*/
         }
 
-        adapter.sortItems();
+        //adapter.sortItems();
 
         if(!mSecondScanComplete) { // removed: mGroupIdQueue.isEmpty() ||
             return;
@@ -301,11 +324,12 @@ public class DemoDiscoveryFragment extends Fragment implements UrlDeviceDiscover
         // Since this callback is given on a background thread and we want
         // to update the list adapter (which can only be done on the UI thread)
         // we have to interact with the adapter on the UI thread.
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
+
+        /*new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
                 emptyGroupIdQueue();
             }
-        });
+        });*/
     }
 }

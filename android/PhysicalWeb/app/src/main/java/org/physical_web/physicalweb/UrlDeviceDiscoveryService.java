@@ -46,6 +46,7 @@ import org.json.JSONObject;
 
 import it.poliba.sisinflab.psw.PswBleDeviceDiscoverer;
 import it.poliba.sisinflab.psw.PswUtils;
+import it.poliba.sisinflab.www18.DemoDiscoveryFragment;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -274,6 +275,8 @@ public class UrlDeviceDiscoveryService extends Service
     mHandler.removeCallbacks(mSecondScanTimeout);
     stopScan();
     saveCache();
+
+    DemoDiscoveryFragment.stopRefresh();
     super.onDestroy();
   }
 

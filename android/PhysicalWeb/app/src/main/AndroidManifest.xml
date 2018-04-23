@@ -171,12 +171,15 @@
         <activity
             android:name="it.poliba.sisinflab.www18.DemoTabActivity"
             android:label="@string/title_activity_demo_tab"
+            android:screenOrientation="portrait"
             android:theme="@style/MaterialAppTheme" />
         <activity
             android:name="it.poliba.sisinflab.www18.DemoFragmentActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/MaterialAppTheme" />
         <activity
             android:name="it.poliba.sisinflab.www18.DemoAdvertisingActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_demo_advertising"></activity>
     </application>
 

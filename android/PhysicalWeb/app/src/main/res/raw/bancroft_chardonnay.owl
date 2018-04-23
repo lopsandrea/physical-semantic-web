@@ -1,0 +1,127 @@
+Prefix: : <http://sisinflab.poliba.it/ontologies/psw-wine#>
+Prefix: daml: <http://www.daml.org/2001/03/daml+oil#>
+Prefix: dc: <http://purl.org/dc/elements/1.1/>
+Prefix: og: <http://ogp.me/ns#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: psw: <http://sisinflab.poliba.it/ontologies/psw-wine#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://sisinflab.poliba.it/ontologies/psw-wine#BancroftChardonnay.owl>
+
+
+AnnotationProperty: og:description
+
+    
+AnnotationProperty: og:image
+
+    
+AnnotationProperty: og:title
+
+    
+AnnotationProperty: og:type
+
+    
+AnnotationProperty: og:url
+
+    
+AnnotationProperty: owl:minCardinality
+
+    
+Datatype: xsd:anyURI
+
+    
+Datatype: xsd:string
+
+    
+ObjectProperty: psw:hasAcceleration
+
+    
+ObjectProperty: psw:hasHumidity
+
+    
+ObjectProperty: psw:hasLight
+
+    
+ObjectProperty: psw:hasPollution
+
+    
+ObjectProperty: psw:hasTemperature
+
+    
+ObjectProperty: psw:hasToxicity
+
+    
+ObjectProperty: psw:hasWineDescriptor
+
+    
+Class: owl:Thing
+
+
+Class: psw:Chardonnay
+
+    
+Class: psw:LowAcceleration
+
+
+Class: psw:ModerateHumidity
+
+
+Class: psw:LowLight
+
+
+Class: psw:LowPollution
+
+
+Class: psw:ModerateTemperature
+
+
+Class: psw:LowToxicity
+
+
+Class: psw:Dry
+
+
+Class: psw:FullBody
+
+
+Class: psw:ModerateFlavor
+
+
+Class: psw:Old
+
+    
+Individual: psw:BancroftChardonnay
+
+    Annotations: 
+        og:description "Bright golden yellow color. Aromas and flavors of baked apples, pie dough, planked cedar, and toasted yeast and potters clay with an crisp, dry full body and a complex, medium-long finish with earthy, woody tannins and moderate oak"^^xsd:string,
+        og:title "Bancroft Chardonnay"^^xsd:string,
+        og:url "http://www.tastings.com/Wine-Review/Bancroft-Cellars-2015-Chardonnay-Mendocino-County-USA-04-03-2017.aspx"^^xsd:anyURI,
+        og:image "https://www.liquorland.com.au/-/media/Images/Products/Generic_WineBottle.ashx?bc=White&mh=200&w=200&productID=93149&isThumbnail=False&hash=C2F246DDCCAD86D7E5BB50234D9C2B8B54C4D55B"^^xsd:anyURI
+    
+    Types: 
+        psw:Chardonnay
+         and (psw:hasAcceleration only psw:LowAcceleration)
+         and (psw:hasHumidity only psw:ModerateHumidity)
+         and (psw:hasLight only psw:LowLight)
+         and (psw:hasPollution only psw:LowPollution)
+         and (psw:hasTemperature only psw:ModerateTemperature)
+         and (psw:hasToxicity only psw:LowToxicity)
+         and (psw:hasWineDescriptor only 
+            (psw:Dry
+             and psw:FullBody
+             and psw:ModerateFlavor
+             and psw:Old))
+         and (psw:hasAcceleration min 1 owl:Thing)
+         and (psw:hasHumidity min 1 owl:Thing)
+         and (psw:hasLight min 1 owl:Thing)
+         and (psw:hasPollution min 1 owl:Thing)
+         and (psw:hasTemperature min 1 owl:Thing)
+         and (psw:hasToxicity min 1 owl:Thing)
+         and (psw:hasWineDescriptor min 1 owl:Thing)
+    
+    
